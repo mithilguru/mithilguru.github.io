@@ -206,20 +206,62 @@
     @font-face {
       font-family: 'Alliance No.1 Regular';
       src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/Alliance%20No.1%20Regular.otf') format('opentype');
-      font-weight: 400;
+      font-weight: 390;
       font-style: normal;
     }
     
     @font-face {
       font-family: 'Alliance No.1 SemiBold';
       src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/Alliance%20No.1%20SemiBold.otf') format('opentype');
-      font-weight: 600;
+      font-weight: 500;
       font-style: normal;
     }
     
-    h1, h2, .nav-header {
+    @font-face {
+      font-family: 'Söhne Semibold';
+      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/TestSöhne-Kräftig.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    
+    h1 {
       font-family: "alliance-no-1", 'Alliance No.1 SemiBold', sans-serif;
-      font-weight: 600;
+      font-weight: 500;
+    }
+    
+    .nav-header, h2 {
+      font-family: "alliance-no-1", 'Alliance No.1 Regular', sans-serif;
+      font-weight: 500;
+    }
+    
+    .project-card h3, .experience-card h3 {
+      font-family: 'Söhne Semibold', 'Söhne', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-card h3 {
+      display: inline-block;
+    }
+    
+    .project-card h3 a, .experience-card .experience-title {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    
+    .project-card h3 a:hover {
+      text-decoration: underline;
+    }
+    
+    .project-card h3 .link-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+      margin-left: 5px;
     }
     
     .skills-list {
@@ -296,7 +338,7 @@
 
     <main>
       <section id="about">
-        <h1>mithil guru</h1>
+        <h1><strong>mithil guru</strong></h1>
         <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.
           Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in human-computer interaction, health sensing, and machine learning.</p>
         
@@ -312,21 +354,21 @@
       <section id="experience">
         <h2>experience</h2>
         <div class="experience-card">
-          <div class="experience-title">Research Collaborator</div>
+          <h3>Research Collaborator</h3>
           <div class="experience-company">Human Computer Integration Lab</div>
           <div class="experience-date">January 2024 - Present</div>
           <p>Contributing to cutting-edge research in human-computer interaction, focusing on longitudinal user studies with electrical muscle stimulation and health sensing.</p>
         </div>
         
         <div class="experience-card">
-          <div class="experience-title">Data Analyst</div>
+          <h3>Data Analyst</h3>
           <div class="experience-company">Fighting Illini Athletics</div>
           <div class="experience-date">July 2022 - Present</div>
           <p>Implementing end-to-end data analysis projects across cross-functional teams, leading to 27% improvement in fan ratings and consecutive years of record revenue.</p>
         </div>
 
         <div class="experience-card">
-          <div class="experience-title">Research Assistant</div>
+          <h3>Research Assistant</h3>
           <div class="experience-company">Center for Health Informatics</div>
           <div class="experience-date">January 2022 - July 2022</div>
           <p>Evaluated social media usage for WHO country representatives, improving total reach by over 25%.</p>
@@ -350,36 +392,15 @@
 
         <h2>ongoing work</h2>
         <div class="project-card">
-          <h3>
-            <a href="#">Understanding the effects of electrical muscle stimulation in learning physical skills</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
+          <h3>Understanding the effects of electrical muscle stimulation in learning physical skills</h3>
           <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
         </div>
         <div class="project-card">
-          <h3>
-            <a href="#">Classifying novel scents via trigeminal nerve electrophysiological signals</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
+          <h3>Classifying novel scents via trigeminal nerve electrophysiological signals</h3>
           <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
         </div>
         <div class="project-card">
-          <h3>
-            <a href="#">Analyzing WHO Representatives social media communications during the COVID-19 pandemic</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
+          <h3>Analyzing WHO Representatives social media communications during the COVID-19 pandemic</h3>
           <p>Advised by Professor Ian Brooks of the Center for Health Informatics at Illinois in collaboration with the World Health Organization</p>
         </div>
       </section>
