@@ -15,39 +15,75 @@
       --background-color: #ffffff;
       --nav-width: 220px;
       --content-max-width: 800px;
-    }
-    
+      --name-weight: 600;          /* For your name */
+      --section-header-weight: 600; 
+      --nav-weight: 400;           
+      --card-header-weight: 600;   
+  
     @font-face {
-      font-family: 'Alliance No.1';
-      src: url('alliance-no.1-regular');
+      font-family: 'Alliance No.1 Regular';
+      src: url('alliance-no.1-regular.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
-    
+  
     @font-face {
-      font-family: 'Söhne';
-      src: url('söhne-buch.otf') format('truetype');
+      font-family: 'Alliance No.1 SemiBold';
+      src: url('alliance-no.1-semibold.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
-    
-    body, p, a, .nav-links a, .experience-title, .experience-company, .experience-date, .skill-tag {
-      font-family: 'Söhne', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+    @font-face {
+      font-family: 'Söhne Regular';
+      src: url('söhne-buch.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
-    
-    h1, h2, .nav-header {
-      font-family: "alliance-no-1", 'Alliance No.1', sans-serif;
-      font-weight: bold;
+  
+    @font-face {
+      font-family: 'Söhne SemiBold';
+      src: url('söhne-kräftig.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
-    
+  
     body {
+      font-family: 'Söhne Regular', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
       background-color: var(--background-color);
       color: var(--primary-color);
-      line-height: 1.6;
       margin: 0;
       padding: 0;
     }
-    
+  
+    h1, .nav-header {
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+      font-weight: var(--name-weight);
+    }
+  
+    h2 {
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+      font-weight: var(--section-header-weight);
+    }
+  
+    .nav-links {
+      font-family: 'Alliance No.1 Regular', sans-serif;
+      font-weight: var(--nav-weight);
+    }
+  
+    .project-card h3,
+    .experience-card h3,
+    .experience-title {
+      font-family: 'Söhne SemiBold', sans-serif;
+      font-weight: var(--card-header-weight);
+    }
+  
+    p, a, .experience-company, 
+    .experience-date, .skill-tag {
+      font-family: 'Söhne Regular', sans-serif;
+    }
+  
     .container {
       display: flex;
       justify-content: center;
@@ -55,7 +91,7 @@
       margin: 0 auto;
       padding: 0 5%;
     }
-    
+  
     nav {
       width: var(--nav-width);
       position: fixed;
@@ -66,12 +102,12 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    
+  
     .profile-container {
       margin-bottom: 20px;
       transition: opacity 0.3s ease;
     }
-    
+  
     .profile-image {
       width: 120px;
       height: 120px;
@@ -79,86 +115,84 @@
       object-fit: cover;
       margin-bottom: 20px;
     }
-    
+  
     .nav-header {
       font-size: 1.2em;
-      font-weight: 600;
       margin-bottom: 40px;
       text-align: left;
     }
-    
+  
     .nav-links {
       list-style: none;
       padding: 0;
     }
-    
+  
     .nav-links li {
       margin: 20px 0;
     }
-    
+  
     .nav-links a {
       color: var(--secondary-color);
       text-decoration: none;
       font-size: 0.95em;
       transition: color 0.3s ease;
     }
-    
+  
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--primary-color);
     }
-    
+  
     main {
       margin-left: var(--nav-width);
       padding: 40px 0;
       width: calc(100% - var(--nav-width));
       max-width: var(--content-max-width);
     }
-    
+  
     .content-wrapper {
       width: 100%;
       max-width: var(--content-max-width);
     }
-    
+  
     #about {
       min-height: 100vh;
       margin-bottom: 80px;
     }
-    
+  
     section {
       margin-bottom: 40px;
       width: 100%;
       opacity: 0;
       transform: translateY(20px);
     }
-    
+  
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
     }
-    
+  
     h2 {
       font-size: 1.7em;
       margin-bottom: 30px;
       color: var(--primary-color);
-      font-weight: bold;
     }
-    
+  
     .project-card, .experience-card {
       margin-bottom: 30px;
       padding: 20px 0;
       border-bottom: 1px solid #eaeaea;
       transition: background-color 0.3s ease;
     }
-    
+  
     .project-card:hover, .experience-card:hover {
       background-color: #f9f9f9;
     }
-    
+  
     .project-card:last-child, .experience-card:last-child {
       border-bottom: none;
     }
-    
+  
     .project-card h3, .experience-card .experience-title {
       font-size: 1.2em;
       margin-bottom: 10px;
@@ -166,114 +200,57 @@
       display: flex;
       align-items: center;
     }
-    
+  
     .project-card h3 a, .experience-card .experience-title a {
       color: var(--primary-color);
       text-decoration: none;
       margin-right: 10px;
     }
-    
+  
     .project-card h3 a:hover, .experience-card .experience-title a:hover {
       text-decoration: underline;
     }
-    
+  
     .project-card h3 .link-icon, .experience-card .experience-title .link-icon {
       width: 16px;
       height: 16px;
       opacity: 0.6;
       margin-left: 5px;
     }
-    
+  
     .experience-company {
       color: var(--highlight-color);
       margin-bottom: 10px;
     }
-    
+  
     .experience-date {
       color: var(--secondary-color);
       font-size: 0.9em;
       margin-bottom: 15px;
     }
-    
-    @font-face {
-      font-family: 'Alliance No.1 Regular';
-      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/alliance-no.1-regular.otf') format('opentype');
-      font-weight: 390;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: 'Alliance No.1 SemiBold';
-      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/alliance-no.1-semibold.otf') format('opentype');
-      font-weight: 660;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: 'Söhne Semibold';
-      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/söhne-kräftig.otf') format('opentype');
-      font-weight: 960;
-      font-style: normal;
-    }
-    
-    h1, .nav-header {
-      font-family: "alliance-no-1", 'Alliance No.1 SemiBold', sans-serif;
-      font-weight: 500;
-    }
-    
-    h2 {
-      font-family: "alliance-no-1", 'Alliance No.1 Regular', sans-serif;
-      font-weight: 500;
-    }
-    
-    .project-card h3, .experience-card h3 {
-      font-family: 'Söhne Semibold', 'Söhne', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-    }
-    
+  
     .project-card h3 {
       display: inline-block;
     }
-    
-    .project-card h3 a, .experience-card .experience-title {
-      color: var(--primary-color);
-      text-decoration: none;
-      margin-right: 10px;
-    }
-    
-    .project-card h3 a:hover {
-      text-decoration: underline;
-    }
-    
-    .project-card h3 .link-icon {
-      width: 16px;
-      height: 16px;
-      opacity: 0.6;
-      margin-left: 5px;
-    }
-    
+  
     .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
     }
-    
+  
     .skill-tag {
       background-color: #f5f5f5;
       padding: 5px 10px;
       border-radius: 15px;
       font-size: 0.9em;
     }
-    
+  
     .highlight {
       color: var(--highlight-color);
     }
-    
+  
     @media (max-width: 768px) {
       nav {
         width: 100%;
@@ -286,27 +263,27 @@
         flex-direction: row;
         justify-content: space-between;
       }
-    
+  
       .profile-container {
         display: none;
       }
-    
+  
       main {
         margin-left: 0;
         margin-top: 80px;
         width: 100%;
         padding: 20px;
       }
-    
+  
       .nav-links {
         display: flex;
         justify-content: space-around;
       }
-    
+  
       .nav-header {
         margin-bottom: 0;
       }
-    
+  
       .content-wrapper {
         padding: 0 20px;
       }
