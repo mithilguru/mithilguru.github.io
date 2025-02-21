@@ -6,17 +6,8 @@
   <title>Mithil Guru</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Alliance No.1 provided via Typekit -->
   <link rel="stylesheet" href="https://use.typekit.net/uqq2lcv.css">
   <style>
-    /* Load local Sohne font – update the filename/path as needed */
-    @font-face {
-      font-family: 'Söhne';
-      src: url('Sohne-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    
     :root {
       --primary-color: #000000;
       --secondary-color: #666666;
@@ -26,36 +17,53 @@
       --content-max-width: 800px;
     }
     
-    /* Default text uses Sohne */
-    body, p, a, h2, h3, .nav-header, .experience-title, .experience-company, .experience-date, .skill-tag {
+    @font-face {
+      font-family: 'Alliance No.1';
+      src: url('https://use.typekit.net/uqq2lcv.css');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Söhne';
+      src: url('Sohne-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    body, p, a, .nav-links a, .experience-title, .experience-company, .experience-date, .skill-tag {
       font-family: 'Söhne', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
-    /* h1 elements use Alliance No.1 */
-    h1 {
-      font-family: "alliance-no-1", sans-serif;
+    h1, h2, .nav-header {
+      font-family: "alliance-no-1", 'Alliance No.1', sans-serif;
     }
     
     body {
       background-color: var(--background-color);
       color: var(--primary-color);
       line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
     
     .container {
       display: flex;
-      min-height: 100vh;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 5%;
     }
     
     nav {
       width: var(--nav-width);
       position: fixed;
       height: 100vh;
-      padding: 40px 20px;
-      background: var(--background-color);
+      padding: 40px 0;
+      left: 5%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
     
     .profile-container {
@@ -75,11 +83,12 @@
       font-size: 1.2em;
       font-weight: 600;
       margin-bottom: 40px;
-      text-align: center;
+      text-align: left;
     }
     
     .nav-links {
       list-style: none;
+      padding: 0;
     }
     
     .nav-links li {
@@ -98,13 +107,12 @@
       color: var(--primary-color);
     }
     
+    /* Main content area */
     main {
       margin-left: var(--nav-width);
-      padding: 40px;
+      padding: 40px 0;
       width: calc(100% - var(--nav-width));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      max-width: var(--content-max-width);
     }
     
     .content-wrapper {
@@ -188,6 +196,7 @@
         height: auto;
         position: fixed;
         top: 0;
+        left: 0;
         padding: 20px;
         z-index: 1000;
         flex-direction: row;
@@ -226,7 +235,7 @@
       <div class="profile-container">
         <img src="https://github.com/mithilguru/mithilguru.github.io/blob/main/pfp-25.png?raw=true" alt="Mithil Guru" class="profile-image">
       </div>
-      <div class="nav-header">Mithil Guru</div>
+      <div class="nav-header">mithil guru</div>
       <ul class="nav-links">
         <li><a href="#about" class="active">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -237,21 +246,21 @@
 
     <main>
       <section id="about">
-        <h1>Mithil Guru</h1>
+        <h1>mithil guru</h1>
         <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.
           Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in human-computer interaction, health sensing, and machine learning.</p>
         
         <div class="skills-list">
-          <div class="skill-tag">Python</div>
+          <div class="skill-tag">python</div>
           <div class="skill-tag">R</div>
           <div class="skill-tag">SQL</div>
-          <div class="skill-tag">Machine Learning</div>
-          <div class="skill-tag">Health Sensing</div>
+          <div class="skill-tag">machine learning</div>
+          <div class="skill-tag">health sensing</div>
         </div>
       </section>
 
       <section id="experience">
-        <h2>Experience</h2>
+        <h2>experience</h2>
         <div class="experience-card">
           <div class="experience-title">Research Collaborator</div>
           <div class="experience-company">Human Computer Integration Lab</div>
@@ -275,14 +284,14 @@
       </section>
 
       <section id="publications">
-        <h2>Publications</h2>
+        <h2>publications</h2>
         <div class="project-card">
           <h3>Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</h3>
           <p>Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, Mithil Guruvugari, and Pedro Lopes <br>
           In Proceedings of CHI 2025</p>
         </div>
 
-        <h2>Ongoing projects</h2>
+        <h2>ongoing work</h2>
         <div class="project-card">
           <h3>Understanding the effects of electrical muscle stimulation in learning physical skills</h3>
           <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
@@ -296,9 +305,9 @@
           <p>Advised by Professor Ian Brooks of the Center for Health Informatics at Illinois in collaboration with the World Health Organization</p>
         </div>
       </section>
-
+      
       <section id="projects">
-        <h2>Projects</h2>
+        <h2>projects</h2>
         <div class="project-card">
           <h3>Fitbit Sleep Score Prediction</h3>
           <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
