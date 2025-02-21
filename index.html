@@ -37,6 +37,7 @@
     
     h1, h2, .nav-header {
       font-family: "alliance-no-1", 'Alliance No.1', sans-serif;
+      font-weight: bold;
     }
     
     body {
@@ -141,24 +142,47 @@
       font-size: 1.8em;
       margin-bottom: 30px;
       color: var(--primary-color);
+      font-weight: bold;
     }
     
     .project-card, .experience-card {
       margin-bottom: 30px;
-      padding: 20px;
-      border: 1px solid #eaeaea;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
+      padding: 20px 0;
+      border-bottom: 1px solid #eaeaea;
+      transition: background-color 0.3s ease;
     }
     
     .project-card:hover, .experience-card:hover {
-      transform: translateY(-5px);
+      background-color: #f9f9f9;
     }
     
-    .experience-title {
+    .project-card:last-child, .experience-card:last-child {
+      border-bottom: none;
+    }
+    
+    .project-card h3, .experience-card .experience-title {
       font-size: 1.2em;
-      font-weight: 600;
       margin-bottom: 10px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-card h3 a, .experience-card .experience-title a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    
+    .project-card h3 a:hover, .experience-card .experience-title a:hover {
+      text-decoration: underline;
+    }
+    
+    .project-card h3 .link-icon, .experience-card .experience-title .link-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+      margin-left: 5px;
     }
     
     .experience-company {
@@ -170,6 +194,32 @@
       color: var(--secondary-color);
       font-size: 0.9em;
       margin-bottom: 15px;
+    }
+    
+    @font-face {
+      font-family: 'Alliance No.1 Light';
+      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/Alliance%20No.1%20Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Alliance No.1 Regular';
+      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/Alliance%20No.1%20Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Alliance No.1 SemiBold';
+      src: url('https://github.com/mithilguru/mithilguru.github.io/raw/main/Alliance%20No.1%20SemiBold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    
+    h1, h2, .nav-header {
+      font-family: "alliance-no-1", 'Alliance No.1 SemiBold', sans-serif;
+      font-weight: 600;
     }
     
     .skills-list {
@@ -232,7 +282,7 @@
 <body>
   <div class="container">
     <nav>
-      <div class="profile-container">
+      <div class="profile-container" id="profile-container">
         <img src="https://github.com/mithilguru/mithilguru.github.io/blob/main/pfp-25.png?raw=true" alt="Mithil Guru" class="profile-image">
       </div>
       <div class="nav-header">mithil guru</div>
@@ -286,22 +336,50 @@
       <section id="publications">
         <h2>publications</h2>
         <div class="project-card">
-          <h3>Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</h3>
+          <h3>
+            <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, Mithil Guruvugari, and Pedro Lopes <br>
           In Proceedings of CHI 2025</p>
         </div>
 
         <h2>ongoing work</h2>
         <div class="project-card">
-          <h3>Understanding the effects of electrical muscle stimulation in learning physical skills</h3>
+          <h3>
+            <a href="#">Understanding the effects of electrical muscle stimulation in learning physical skills</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
         </div>
         <div class="project-card">
-          <h3>Classifying novel scents via trigeminal nerve electrophysiological signals</h3>
+          <h3>
+            <a href="#">Classifying novel scents via trigeminal nerve electrophysiological signals</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
         </div>
         <div class="project-card">
-          <h3>Analyzing WHO Representatives social media communications during the COVID-19 pandemic</h3>
+          <h3>
+            <a href="#">Analyzing WHO Representatives social media communications during the COVID-19 pandemic</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Advised by Professor Ian Brooks of the Center for Health Informatics at Illinois in collaboration with the World Health Organization</p>
         </div>
       </section>
@@ -309,17 +387,38 @@
       <section id="projects">
         <h2>projects</h2>
         <div class="project-card">
-          <h3>Fitbit Sleep Score Prediction</h3>
+          <h3>
+            <a href="#">Fitbit Sleep Score Prediction</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
             Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
         </div>
         <div class="project-card">
-          <h3>Athlete Strength Test Analysis</h3>
+          <h3>
+            <a href="#">Athlete Strength Test Analysis</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
             Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
         </div>
         <div class="project-card">
-          <h3>Coursera Customer Churn Prediction</h3>
+          <h3>
+            <a href="#">Coursera Customer Churn Prediction</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
           <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
             Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
         </div>
@@ -343,6 +442,23 @@
           toggleActions: "play none none reverse"
         }
       });
+    });
+
+    // Profile photo hide on scroll
+    const profileContainer = document.getElementById('profile-container');
+    const aboutSection = document.getElementById('about');
+
+    window.addEventListener('scroll', () => {
+      const aboutSectionBottom = aboutSection.offsetTop + aboutSection.offsetHeight;
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollPosition > aboutSectionBottom) {
+        profileContainer.style.opacity = '0';
+        profileContainer.style.pointerEvents = 'none';
+      } else {
+        profileContainer.style.opacity = '1';
+        profileContainer.style.pointerEvents = 'auto';
+      }
     });
 
     // Active section highlighting
