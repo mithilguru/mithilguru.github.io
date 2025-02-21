@@ -6,126 +6,135 @@
   <title>Mithil Guru</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Removed external Typekit stylesheet as we now use the real Sohne font -->
+  <!-- Alliance No.1 provided via Typekit -->
+  <link rel="stylesheet" href="https://use.typekit.net/uqq2lcv.css">
   <style>
-    /* 1. Use local Sohne font (make sure to place Sohne-Regular.ttf in your GitHub folder) */
+    /* Load local Sohne font – update the filename/path as needed */
     @font-face {
       font-family: 'Söhne';
-      src: url('TestSöhne-Buch.otf') format('truetype');
+      src: url('Sohne-Regular.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
-
+    
     :root {
       --primary-color: #000000;
       --secondary-color: #666666;
       --highlight-color: #000000;
       --background-color: #ffffff;
-      --nav-height: 80px;
+      --nav-width: 220px;
       --content-max-width: 800px;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    
+    /* Default text uses Sohne */
+    body, p, a, h2, h3, .nav-header, .experience-title, .experience-company, .experience-date, .skill-tag {
       font-family: 'Söhne', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-
-    /* All headings now use the real Sohne font */
-    h1, h2, h3, .nav-header {
-        font-family: "alliance-no-1", sans-serif;
+    
+    /* h1 elements use Alliance No.1 */
+    h1 {
+      font-family: "alliance-no-1", sans-serif;
     }
-
+    
     body {
       background-color: var(--background-color);
       color: var(--primary-color);
       line-height: 1.6;
     }
-
+    
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    
     nav {
-      width: 100%;
+      width: var(--nav-width);
       position: fixed;
-      top: 0;
-      padding: 20px 40px;
+      height: 100vh;
+      padding: 40px 20px;
       background: var(--background-color);
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
     }
-
+    
     .profile-container {
-      display: flex;
-      align-items: center;
+      margin-bottom: 20px;
+      transition: opacity 0.3s ease;
     }
-
+    
     .profile-image {
-      width: 40px;
-      height: 40px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin-right: 10px;
+      margin-bottom: 20px;
     }
-
+    
     .nav-header {
       font-size: 1.2em;
       font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
     }
-
+    
     .nav-links {
       list-style: none;
-      display: flex;
-      gap: 20px;
     }
-
-    .nav-links li a {
+    
+    .nav-links li {
+      margin: 20px 0;
+    }
+    
+    .nav-links a {
       color: var(--secondary-color);
       text-decoration: none;
       font-size: 0.95em;
       transition: color 0.3s ease;
     }
-
-    .nav-links li a:hover,
-    .nav-links li a.active {
+    
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--primary-color);
     }
-
+    
     main {
-      margin-top: var(--nav-height);
-      max-width: var(--content-max-width);
-      margin-left: auto;
-      margin-right: auto;
-      padding: 40px 20px;
+      margin-left: var(--nav-width);
+      padding: 40px;
+      width: calc(100% - var(--nav-width));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
+    
     .content-wrapper {
       width: 100%;
+      max-width: var(--content-max-width);
     }
-
-    section {
-      margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
+    
     #about {
       min-height: 100vh;
       margin-bottom: 80px;
     }
-
+    
+    section {
+      margin-bottom: 40px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
     }
-
+    
     h2 {
       font-size: 1.8em;
       margin-bottom: 30px;
       color: var(--primary-color);
     }
-
+    
     .project-card, .experience-card {
       margin-bottom: 30px;
       padding: 20px;
@@ -133,95 +142,104 @@
       border-radius: 8px;
       transition: transform 0.3s ease;
     }
-
+    
     .project-card:hover, .experience-card:hover {
       transform: translateY(-5px);
     }
-
+    
     .experience-title {
       font-size: 1.2em;
       font-weight: 600;
       margin-bottom: 10px;
     }
-
+    
     .experience-company {
       color: var(--highlight-color);
       margin-bottom: 10px;
     }
-
+    
     .experience-date {
       color: var(--secondary-color);
       font-size: 0.9em;
       margin-bottom: 15px;
     }
-
+    
     .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
     }
-
+    
     .skill-tag {
       background-color: #f5f5f5;
       padding: 5px 10px;
       border-radius: 15px;
       font-size: 0.9em;
     }
-
+    
     .highlight {
       color: var(--highlight-color);
     }
-
-    #projects {
-      min-height: 100vh;
-      scroll-margin-top: var(--nav-height);
-    }
-
-    [id] {
-      scroll-margin-top: var(--nav-height);
-    }
-
+    
     @media (max-width: 768px) {
       nav {
-        flex-direction: column;
-        padding: 10px 20px;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        padding: 20px;
+        z-index: 1000;
+        flex-direction: row;
+        justify-content: space-between;
       }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
+    
+      .profile-container {
+        display: none;
       }
-
+    
       main {
-        padding: 20px 10px;
+        margin-left: 0;
+        margin-top: 80px;
+        width: 100%;
+        padding: 20px;
+      }
+    
+      .nav-links {
+        display: flex;
+        justify-content: space-around;
+      }
+    
+      .nav-header {
+        margin-bottom: 0;
+      }
+    
+      .content-wrapper {
+        padding: 0 20px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Top Navigation Bar -->
-  <nav>
-    <div class="profile-container">
-      <img src="https://github.com/mithilguru/mithilguru.github.io/blob/main/pfp-25.png?raw=true" alt="Mithil Guru" class="profile-image">
+  <div class="container">
+    <nav>
+      <div class="profile-container">
+        <img src="https://github.com/mithilguru/mithilguru.github.io/blob/main/pfp-25.png?raw=true" alt="Mithil Guru" class="profile-image">
+      </div>
       <div class="nav-header">Mithil Guru</div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about" class="active">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#projects">Projects</a></li>
-    </ul>
-  </nav>
+      <ul class="nav-links">
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
 
-  <main>
-    <div class="content-wrapper">
+    <main>
       <section id="about">
         <h1>Mithil Guru</h1>
         <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.
-          Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in human-computer interaction, health sensing, and machine learning. </p>
+          Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in human-computer interaction, health sensing, and machine learning.</p>
         
         <div class="skills-list">
           <div class="skill-tag">Python</div>
@@ -297,13 +315,13 @@
             Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
         </div>
       </section>
-    </div>
-  </main>
+    </main>
+  </div>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initialize GSAP animations for each section
+    // GSAP animations for each section
     gsap.utils.toArray("section").forEach(section => {
       gsap.to(section, {
         opacity: 1,
@@ -318,7 +336,7 @@
       });
     });
 
-    // Active section highlighting based on scroll position
+    // Active section highlighting
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
 
