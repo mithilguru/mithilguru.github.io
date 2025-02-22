@@ -19,6 +19,7 @@
       --section-header-weight: 560; 
       --nav-weight: 400;           
       --card-header-weight: 600;   
+    }
   
     @font-face {
       font-family: 'Alliance No.1 Regular';
@@ -34,62 +35,43 @@
       font-style: normal;
     }
   
-    @font-face {
-      font-family: 'Söhne Regular';
-      src: url('söhne-buch.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-  
-    @font-face {
-      font-family: 'Söhne SemiBold';
-      src: url('söhne-kräftig.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-  
     body {
-      font-family: 'Söhne Regular', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.6;
-      background-color: var(--background-color);
-      color: var(--primary-color);
+      font-family: 'Alliance No.1 Regular', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
       margin: 0;
       padding: 0;
+      background-color: #ffffff;
     }
   
-    h1, .nav-header {
-      font-family: 'Alliance No.1 SemiBold', sans-serif;
-      font-weight: var(--name-weight);
+    .background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
     }
   
-    h2 {
-      font-family: 'Alliance No.1 SemiBold', sans-serif;
-      font-weight: var(--section-header-weight);
+    .background-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
     }
   
-    .nav-links {
-      font-family: 'Alliance No.1 Regular', sans-serif;
-      font-weight: var(--nav-weight);
+    .background-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, white, transparent, white);
     }
   
-    .project-card h3,
-    .experience-card h3,
-    .experience-title {
-      font-family: 'Söhne SemiBold', sans-serif;
-      font-weight: var(--card-header-weight);
-    }
-  
-    p, a, .experience-company, 
-    .experience-date, .skill-tag {
-      font-family: 'Söhne Regular', sans-serif;
-    }
-  
-    .container {
-      display: flex;
-      justify-content: center;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 5%;
+    .mesh-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
   
     nav {
@@ -101,6 +83,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      z-index: 10;
     }
   
     .profile-container {
@@ -117,6 +100,7 @@
     }
   
     .nav-header {
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
       font-size: 1.5em;
       margin-bottom: 40px;
       text-align: left;
@@ -150,105 +134,81 @@
       max-width: var(--content-max-width);
     }
   
-    .content-wrapper {
-      width: 100%;
-      max-width: var(--content-max-width);
-    }
-  
     #about {
       min-height: 100vh;
       margin-bottom: 80px;
     }
   
-    section {
-      margin-bottom: 40px;
-      width: 100%;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  
     h1 {
-      font-size: 3.1em;
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+      font-size: 4.5em;
       margin-bottom: 20px;
+      line-height: 1.2;
     }
   
-    h2 {
-      font-size: 2.1em;
-      margin-bottom: 30px;
-      color: var(--primary-color);
-    }
-  
-    .project-card, .experience-card {
-      margin-bottom: 30px;
-      padding: 20px 0;
-      border-bottom: 1px solid #eaeaea;
-      transition: background-color 0.3s ease;
-    }
-  
-    .project-card:hover, .experience-card:hover {
-      background-color: #f9f9f9;
-    }
-  
-    .project-card:last-child, .experience-card:last-child {
-      border-bottom: none;
-    }
-  
-    .project-card h3, .experience-card .experience-title {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-    }
-  
-    .project-card h3 a, .experience-card .experience-title a {
-      color: var(--primary-color);
-      text-decoration: none;
-      margin-right: 10px;
-    }
-  
-    .project-card h3 a:hover, .experience-card .experience-title a:hover {
-      text-decoration: underline;
-    }
-  
-    .project-card h3 .link-icon, .experience-card .experience-title .link-icon {
-      width: 16px;
-      height: 16px;
-      opacity: 0.6;
-      margin-left: 5px;
-    }
-  
-    .experience-company {
-      color: var(--highlight-color);
-      margin-bottom: 10px;
-    }
-  
-    .experience-date {
-      color: var(--secondary-color);
-      font-size: 0.9em;
-      margin-bottom: 15px;
-    }
-  
-    .project-card h3 {
-      display: inline-block;
+    .about-text {
+      font-size: 1.5em;
+      line-height: 1.7;
+      margin-bottom: 2em;
     }
   
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 12px;
+      margin-top: 2em;
     }
   
     .skill-tag {
-      background-color: #f5f5f5;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 0.9em;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 1.1em;
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
   
-    .highlight {
+    section {
+      margin-bottom: 120px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    h2 {
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+  
+    .project-card, .experience-card {
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+  
+    .project-card:hover, .experience-card:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+  
+    .project-card h3, .experience-card h3 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+    }
+  
+    .experience-company {
+      font-size: 1.1em;
       color: var(--highlight-color);
+      margin-bottom: 8px;
+    }
+  
+    .experience-date {
+      color: var(--secondary-color);
+      margin-bottom: 15px;
     }
   
     @media (max-width: 768px) {
@@ -259,9 +219,8 @@
         top: 0;
         left: 0;
         padding: 20px;
-        z-index: 1000;
-        flex-direction: row;
-        justify-content: space-between;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
       }
   
       .profile-container {
@@ -270,27 +229,32 @@
   
       main {
         margin-left: 0;
-        margin-top: 80px;
-        width: 100%;
-        padding: 20px;
+        margin-top: 100px;
+        width: 90%;
+        padding: 20px 5%;
       }
   
-      .nav-links {
-        display: flex;
-        justify-content: space-around;
+      h1 {
+        font-size: 3em;
       }
   
-      .nav-header {
-        margin-bottom: 0;
-      }
-  
-      .content-wrapper {
-        padding: 0 20px;
+      .about-text {
+        font-size: 1.2em;
       }
     }
   </style>
 </head>
 <body>
+  <div class="background-container">
+    <img 
+      src="https://images.ctfassets.net/kftzwdyauwt9/68408b65-762f-4f71-2d3c9b2dc1da/0d9e1323c7225802bf1fd1ac15b5ad80/image-17.webp" 
+      alt="Abstract Background"
+      class="background-image"
+    >
+    <div class="background-overlay"></div>
+    <div class="mesh-pattern"></div>
+  </div>
+
   <div class="container">
     <nav>
       <div class="profile-container" id="profile-container">
@@ -308,7 +272,7 @@
     <main>
       <section id="about">
         <h1>mithil guru</h1>
-        <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.
+        <p class="about-text">I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.
           Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in human-computer interaction, health sensing, and machine learning.</p>
         
         <div class="skills-list">
@@ -347,16 +311,8 @@
       <section id="publications">
         <h2>publications</h2>
         <div class="project-card">
-          <h3>
-            <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> In Proceedings of CHI 2025 </p> 
-
+          <h3>Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</h3>
+          <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> In Proceedings of CHI 2025</p>
         </div>
 
         <h2>ongoing work</h2>
@@ -368,49 +324,21 @@
           <h3>Classifying novel scents via trigeminal nerve electrophysiological signals</h3>
           <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
         </div>
-        <div class="project-card">
-          <h3>Analyzing WHO Representatives social media communications during the COVID-19 pandemic</h3>
-          <p>Advised by Professor Ian Brooks of the Center for Health Informatics at Illinois in collaboration with the World Health Organization</p>
-        </div>
       </section>
       
       <section id="projects">
         <h2>projects</h2>
         <div class="project-card">
-          <h3>
-            <a href="#">Fitbit Sleep Score Prediction</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
-            Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
+          <h3>Fitbit Sleep Score Prediction</h3>
+          <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction. Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91</p>
         </div>
         <div class="project-card">
-          <h3>
-            <a href="#">Athlete Strength Test Analysis</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
-            Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
+          <h3>Athlete Strength Test Analysis</h3>
+          <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform. Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes</p>
         </div>
         <div class="project-card">
-          <h3>
-            <a href="#">Coursera Customer Churn Prediction</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
-            Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
+          <h3>Coursera Customer Churn Prediction</h3>
+          <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera. Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide</p>
         </div>
       </section>
     </main>
