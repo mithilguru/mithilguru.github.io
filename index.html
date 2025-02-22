@@ -33,6 +33,7 @@
       margin: 0;
       padding: 0;
       background-color: #ffffff;
+      overflow-x: hidden;
     }
   
     .container {
@@ -42,29 +43,7 @@
       padding: 0 5%;
     }
 
-    /* About Section Background */
-    #about {
-      position: relative;
-    }
-
-    .background-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      overflow: hidden;
-    }
-  
-    .background-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.25;
-    }
-  
+    /* Navigation Styles */
     nav {
       width: var(--nav-width);
       position: fixed;
@@ -74,6 +53,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      z-index: 10;
     }
   
     .profile-container {
@@ -115,42 +95,80 @@
     .nav-links a.active {
       color: var(--primary-color);
     }
-  
+
+    /* Main Content Styles */
     main {
       margin-left: var(--nav-width);
       padding: 40px 0;
       width: calc(100% - var(--nav-width));
       max-width: var(--content-max-width);
+      position: relative;
     }
   
+    /* About Section and Background */
     #about {
       min-height: 100vh;
       margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
     }
   
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+  
+    /* Typography */
     h1 {
       font-family: 'Alliance No.1 SemiBold', sans-serif;
       font-size: 4.5em;
       margin-bottom: 32px;
       line-height: 1.1;
+      position: relative;
+      z-index: 2;
     }
   
     .primary-text {
       font-size: 2em;
       line-height: 1.4;
       margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
     }
   
     .secondary-text {
       font-size: 1.25em;
       line-height: 1.7;
       color: var(--secondary-color);
+      position: relative;
+      z-index: 2;
     }
   
+    /* Other Sections */
     section {
       margin-bottom: 120px;
       opacity: 0;
       transform: translateY(20px);
+      position: relative;
+      z-index: 2;
+      background-color: white;
+    }
+
+    section:not(#about) {
+      background-color: white;
     }
   
     h2 {
