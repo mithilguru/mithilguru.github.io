@@ -15,38 +15,79 @@
       --background-color: #ffffff;
       --nav-width: 220px;
       --content-max-width: 810px;
+      --name-weight: 560;          
+      --section-header-weight: 560; 
+      --nav-weight: 400;           
+      --card-header-weight: 600;   
     }
   
     @font-face {
       font-family: 'Alliance No.1 Regular';
       src: url('alliance-no.1-regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
   
     @font-face {
       font-family: 'Alliance No.1 SemiBold';
       src: url('alliance-no.1-semibold.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  
+    @font-face {
+      font-family: 'Söhne Regular';
+      src: url('söhne-buch.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  
+    @font-face {
+      font-family: 'Söhne SemiBold';
+      src: url('söhne-kräftig.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
   
     body {
-      font-family: 'Alliance No.1 Regular', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.7;
+      font-family: 'Söhne Regular', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background-color: var(--background-color);
+      color: var(--primary-color);
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      overflow-x: hidden;
+    }
+  
+    h1, .nav-header {
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+      font-weight: var(--name-weight);
+    }
+  
+    h2 {
+      font-family: 'Alliance No.1 SemiBold', sans-serif;
+      font-weight: var(--section-header-weight);
+      font-size: 2.1em;
+      margin-bottom: 30px;
+    }
+  
+    .nav-links {
+      font-family: 'Alliance No.1 Regular', sans-serif;
+      font-weight: var(--nav-weight);
+    }
+  
+    .project-card h3,
+    .experience-card h3,
+    .experience-title {
+      font-family: 'Söhne SemiBold', sans-serif;
+      font-weight: var(--card-header-weight);
     }
   
     .container {
       display: flex;
+      justify-content: center;
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 5%;
-    }
-
-    .background-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
     }
   
     nav {
@@ -77,7 +118,6 @@
     }
   
     .nav-header {
-      font-family: 'Alliance No.1 SemiBold', sans-serif;
       font-size: 1.5em;
       margin-bottom: 40px;
     }
@@ -102,7 +142,7 @@
     .nav-links a.active {
       color: var(--primary-color);
     }
-
+  
     main {
       margin-left: var(--nav-width);
       padding: 40px 0;
@@ -115,65 +155,75 @@
     #about {
       min-height: 100vh;
       margin-bottom: 80px;
-      position: relative;
-    }
-  
-    h1 {
-      font-family: 'Alliance No.1 SemiBold', sans-serif;
-      font-size: 4.5em;
-      margin-bottom: 32px;
-      line-height: 1.1;
-    }
-  
-    .primary-text {
-      font-size: 2em;
-      line-height: 1.4;
-      margin-bottom: 32px;
-    }
-  
-    .secondary-text {
-      font-size: 1.25em;
-      line-height: 1.7;
-      color: var(--secondary-color);
     }
   
     section {
       margin-bottom: 120px;
       opacity: 0;
       transform: translateY(20px);
-      position: relative;
-    }
-
-    section:not(#about) {
-      background-color: var(--background-color);
-      position: relative;
-      padding: 40px;
-      border-radius: 20px;
-      margin: 40px 0;
     }
   
-    h2 {
-      font-family: 'Alliance No.1 SemiBold', sans-serif;
-      font-size: 2.5em;
-      margin-bottom: 40px;
+    h1 {
+      font-size: 4.5em;
+      margin-bottom: 32px;
+      line-height: 1.1;
+    }
+
+    /* Enhanced about section styling from version 1 */
+    #about p:first-of-type {
+      font-size: 2em;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+
+    #about p:last-of-type {
+      font-size: 1.25em;
+      line-height: 1.7;
+      color: var(--secondary-color);
+    }
+  
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  
+    .skill-tag {
+      background-color: #f5f5f5;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.9em;
     }
   
     .project-card, .experience-card {
       margin-bottom: 40px;
       padding: 0 0 40px 0;
       border-bottom: 1px solid #eaeaea;
+      transition: background-color 0.3s ease;
     }
   
-    .project-card:last-child, 
-    .experience-card:last-child {
+    .project-card:hover, .experience-card:hover {
+      background-color: #f9f9f9;
+    }
+  
+    .project-card:last-child, .experience-card:last-child {
       border-bottom: none;
     }
   
-    .project-card h3, 
-    .experience-card h3 {
+    .project-card h3, .experience-card h3 {
       font-size: 1.4em;
       margin-bottom: 10px;
-      font-family: 'Alliance No.1 SemiBold', sans-serif;
+    }
+
+    .project-card h3 a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .project-card h3 a:hover {
+      text-decoration: underline;
     }
   
     .experience-company {
@@ -185,6 +235,15 @@
     .experience-date {
       color: var(--secondary-color);
       margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+
+    .link-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+      margin-left: 5px;
+      vertical-align: middle;
     }
   
     @media (max-width: 768px) {
@@ -197,6 +256,8 @@
         padding: 20px;
         background-color: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(8px);
+        flex-direction: row;
+        justify-content: space-between;
       }
   
       .profile-container {
@@ -205,21 +266,30 @@
   
       main {
         margin-left: 0;
-        margin-top: 100px;
-        width: 90%;
-        padding: 20px 5%;
+        margin-top: 80px;
+        width: 100%;
+        padding: 20px;
       }
   
       h1 {
         font-size: 3em;
       }
   
-      .primary-text {
+      #about p:first-of-type {
         font-size: 1.5em;
       }
   
-      .secondary-text {
+      #about p:last-of-type {
         font-size: 1.1em;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .nav-header {
+        margin-bottom: 0;
       }
     }
   </style>
@@ -242,74 +312,109 @@
     <main>
       <section id="about">
         <h1>mithil guru</h1>
-        <p class="primary-text">I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.</p>
-        <p class="secondary-text">Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="color: var(--primary-color)">human-computer interaction</span>, <span style="color: var(--primary-color)">health sensing</span>, and <span style="color: var(--primary-color)">machine learning</span>.</p>
-      </section>
-
-      <section id="experience">
-        <h2>experience</h2>
-        <div class="experience-card">
-          <h3>Research Collaborator</h3>
-          <div class="experience-company">Human Computer Integration Lab</div>
-          <div class="experience-date">January 2024 - Present</div>
-          <p>Contributing to cutting-edge research in human-computer interaction, focusing on longitudinal user studies with electrical muscle stimulation and health sensing.</p>
-        </div>
+        <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.</p>
+        <p>Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="color: var(--primary-color)">human-computer interaction</span>, <span style="color: var(--primary-color)">health sensing</span>, and <span style="color: var(--primary-color)">machine learning</span>.</p>
         
-        <div class="experience-card">
-          <h3>Data Analyst</h3>
-          <div class="experience-company">Fighting Illini Athletics</div>
-          <div class="experience-date">July 2022 - Present</div>
-          <p>Implementing end-to-end data analysis projects across cross-functional teams, leading to 27% improvement in fan ratings and consecutive years of record revenue.</p>
-        </div>
-
-        <div class="experience-card">
-          <h3>Research Assistant</h3>
-          <div class="experience-company">Center for Health Informatics</div>
-          <div class="experience-date">January 2022 - July 2022</div>
-          <p>Evaluated social media usage for WHO country representatives, improving total reach by over 25%.</p>
-        </div>
-      </section>
-
-      <section id="publications">
-        <h2>publications</h2>
-        <div class="project-card">
-          <h3>Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</h3>
-          <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> In Proceedings of CHI 2025</p>
-        </div>
-
-        <h2>ongoing work</h2>
-        <div class="project-card">
-          <h3>Understanding the effects of electrical muscle stimulation in learning physical skills</h3>
-          <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
-        </div>
-        <div class="project-card">
-          <h3>Classifying novel scents via trigeminal nerve electrophysiological signals</h3>
-          <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
-        </div>
-      </section>
-      
-      <section id="projects">
-        <h2>projects</h2>
-        <div class="project-card">
-          <h3>Fitbit Sleep Score Prediction</h3>
-          <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction. Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91</p>
-        </div>
-        <div class="project-card">
-          <h3>Athlete Strength Test Analysis</h3>
-          <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform. Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes</p>
-        </div>
-        <div class="project-card">
-          <h3>Coursera Customer Churn Prediction</h3>
-          <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera. Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide</p>
-        </div>
-      </section>
+        <section id="experience">
+            <h2>experience</h2>
+            <div class="experience-card">
+              <h3>Research Collaborator</h3>
+              <div class="experience-company">Human Computer Integration Lab</div>
+              <div class="experience-date">January 2024 - Present</div>
+              <p>Contributing to cutting-edge research in human-computer interaction, focusing on longitudinal user studies with electrical muscle stimulation and health sensing.</p>
+            </div>
+            
+            <div class="experience-card">
+              <h3>Data Analyst</h3>
+              <div class="experience-company">Fighting Illini Athletics</div>
+              <div class="experience-date">July 2022 - Present</div>
+              <p>Implementing end-to-end data analysis projects across cross-functional teams, leading to 27% improvement in fan ratings and consecutive years of record revenue.</p>
+            </div>
+    
+            <div class="experience-card">
+              <h3>Research Assistant</h3>
+              <div class="experience-company">Center for Health Informatics</div>
+              <div class="experience-date">January 2022 - July 2022</div>
+              <p>Evaluated social media usage for WHO country representatives, improving total reach by over 25%.</p>
+            </div>
+          </section>
+    
+          <section id="publications">
+            <h2>publications</h2>
+            <div class="project-card">
+              <h3>
+                <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </h3>
+              <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> In Proceedings of CHI 2025 </p> 
+    
+            </div>
+    
+            <h2>ongoing work</h2>
+            <div class="project-card">
+              <h3>Understanding the effects of electrical muscle stimulation in learning physical skills</h3>
+              <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
+            </div>
+            <div class="project-card">
+              <h3>Classifying novel scents via trigeminal nerve electrophysiological signals</h3>
+              <p>Advised by Professor Pedro Lopes in collaboration with the Human Computer Integration Lab at the University of Chicago</p>
+            </div>
+            <div class="project-card">
+              <h3>Analyzing WHO Representatives social media communications during the COVID-19 pandemic</h3>
+              <p>Advised by Professor Ian Brooks of the Center for Health Informatics at Illinois in collaboration with the World Health Organization</p>
+            </div>
+          </section>
+          
+          <section id="projects">
+            <h2>projects</h2>
+            <div class="project-card">
+              <h3>
+                <a href="#">Fitbit Sleep Score Prediction</a>
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </h3>
+              <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
+                Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
+            </div>
+            <div class="project-card">
+              <h3>
+                <a href="#">Athlete Strength Test Analysis</a>
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </h3>
+              <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
+                Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
+            </div>
+            <div class="project-card">
+              <h3>
+                <a href="#">Coursera Customer Churn Prediction</a>
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </h3>
+              <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
+                Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
+            </div>
+          </section>
     </main>
   </div>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // GSAP animations for each section
+    // GSAP animations
     gsap.utils.toArray("section").forEach(section => {
       gsap.to(section, {
         opacity: 1,
@@ -360,6 +465,16 @@
         if (link.getAttribute('href').slice(1) === current) {
           link.classList.add('active');
         }
+      });
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
   </script>
