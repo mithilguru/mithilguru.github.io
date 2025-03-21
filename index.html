@@ -6,7 +6,7 @@
   <title>Mithil Guru</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Adobe Fonts for Neue Haas Grotesk is already installed on the device -->
+  <link rel="stylesheet" href="https://use.typekit.net/abc1234.css"> <!-- Replace with your Adobe Fonts kit URL for Neue Haas Grotesk -->
   <style>
     :root {
       --primary-color: #000000;
@@ -23,8 +23,6 @@
   
     body {
       font-family: 'neue-haas-grotesk-text', sans-serif;
-      font-weight: 400;
-      font-style: normal;
       line-height: 1.6;
       background-color: var(--background-color);
       color: var(--primary-color);
@@ -32,39 +30,32 @@
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: 'kern', 'liga';
-      text-rendering: optimizeLegibility;
     }
   
     h1, .nav-header {
       font-family: 'neue-haas-grotesk-display', sans-serif;
-      font-weight: 600;
-      font-style: normal;
-      letter-spacing: -0.02em;
-      margin-top: 0;
+      font-weight: var(--name-weight);
+      letter-spacing: -0.03em;
     }
   
     h2 {
       font-family: 'neue-haas-grotesk-display', sans-serif;
-      font-weight: 600;
-      font-style: normal;
+      font-weight: var(--section-header-weight);
       font-size: 2.1em;
       margin-bottom: 30px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
   
     .nav-links {
       font-family: 'neue-haas-grotesk-text', sans-serif;
-      font-weight: 400;
-      font-style: normal;
+      font-weight: var(--nav-weight);
     }
   
     .project-card h3,
     .experience-card h3,
     .experience-title {
       font-family: 'neue-haas-grotesk-display', sans-serif;
-      font-weight: 500;
-      font-style: normal;
+      font-weight: var(--card-header-weight);
       letter-spacing: -0.01em;
     }
   
@@ -155,28 +146,20 @@
     h1 {
       font-size: 4.5em;
       margin-bottom: 32px;
-      line-height: 1;
-      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
     #about p:first-of-type {
-      font-family: 'neue-haas-grotesk-display', sans-serif;
-      font-weight: 500;
-      font-style: normal;
-      font-size: 1.8em;
-      line-height: 1.3;
+      font-size: 2em;
+      line-height: 1.4;
       margin-bottom: 32px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
     #about p:last-of-type {
-      font-family: 'neue-haas-grotesk-text', sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 1.2em;
-      line-height: 1.6;
+      font-size: 1.25em;
+      line-height: 1.7;
       color: var(--secondary-color);
-      max-width: 90%;
     }
   
     .skills-list {
@@ -198,14 +181,6 @@
       padding: 0 0 40px 0;
       border-bottom: 1px solid #eaeaea;
       transition: background-color 0.3s ease;
-    }
-    
-    .project-card p, .experience-card p {
-      font-family: 'neue-haas-grotesk-text', sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      line-height: 1.6;
-      max-width: 95%;
     }
   
     .project-card:hover, .experience-card:hover {
@@ -232,18 +207,13 @@
     }
   
     .experience-company {
-      font-family: 'neue-haas-grotesk-text', sans-serif;
       font-weight: 500;
-      font-style: normal;
       font-size: 1.25em;
       color: var(--highlight-color);
       margin-bottom: 8px;
     }
   
     .experience-date {
-      font-family: 'neue-haas-grotesk-text', sans-serif;
-      font-weight: 400;
-      font-style: normal;
       color: var(--secondary-color);
       margin-bottom: 15px;
       font-size: 0.9em;
@@ -338,8 +308,7 @@
         <p>Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="color: var(--primary-color)">human-computer interaction</span>, <span style="color: var(--primary-color)">health sensing</span>, and <span style="color: var(--primary-color)">machine learning</span>.</p>
       </section>
       
-      <!-- Visual separator after the about section -->
-      <div class="section-divider"></div>
+      
         
       <section id="experience">
         <h2>experience</h2>
