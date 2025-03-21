@@ -6,7 +6,7 @@
   <title>Mithil Guru</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css">
+  <link rel="stylesheet" href="https://use.typekit.net/abc1234.css"> <!-- Replace with your Adobe Fonts kit URL for Neue Haas Grotesk -->
   <style>
     :root {
       --primary-color: #000000;
@@ -21,14 +21,8 @@
       --card-header-weight: 500;   
     }
   
-    @supports (font-variation-settings: normal) {
-      body {
-        font-family: 'Inter var', sans-serif;
-      }
-    }
-  
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'neue-haas-grotesk-text', sans-serif;
       line-height: 1.6;
       background-color: var(--background-color);
       color: var(--primary-color);
@@ -36,17 +30,16 @@
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: 'ss01' on, 'ss02' on, 'cv01' on, 'cv03' on;
     }
   
     h1, .nav-header {
-      font-family: inherit;
+      font-family: 'neue-haas-grotesk-display', sans-serif;
       font-weight: var(--name-weight);
       letter-spacing: -0.03em;
     }
   
     h2 {
-      font-family: inherit;
+      font-family: 'neue-haas-grotesk-display', sans-serif;
       font-weight: var(--section-header-weight);
       font-size: 2.1em;
       margin-bottom: 30px;
@@ -54,14 +47,14 @@
     }
   
     .nav-links {
-      font-family: inherit;
+      font-family: 'neue-haas-grotesk-text', sans-serif;
       font-weight: var(--nav-weight);
     }
   
     .project-card h3,
     .experience-card h3,
     .experience-title {
-      font-family: inherit;
+      font-family: 'neue-haas-grotesk-display', sans-serif;
       font-weight: var(--card-header-weight);
       letter-spacing: -0.01em;
     }
@@ -138,7 +131,10 @@
   
     #about {
       min-height: 100vh;
-      margin-bottom: 80px;
+      margin-bottom: 120px; /* Increased space between about and following sections */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centers content vertically for standalone feel */
     }
   
     section {
@@ -230,6 +226,14 @@
       margin-left: 5px;
       vertical-align: middle;
     }
+    
+    /* Visual separator between about and other sections */
+    .section-divider {
+      height: 1px;
+      background-color: #eaeaea;
+      width: 100%;
+      margin: 40px 0 80px 0;
+    }
   
     @media (max-width: 768px) {
       nav {
@@ -276,6 +280,10 @@
       .nav-header {
         margin-bottom: 0;
       }
+      
+      #about {
+        min-height: calc(100vh - 80px); /* Account for the fixed header */
+      }
     }
   </style>
 </head>
@@ -298,82 +306,85 @@
         <h1>mithil guru</h1>
         <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.</p>
         <p>Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="color: var(--primary-color)">human-computer interaction</span>, <span style="color: var(--primary-color)">health sensing</span>, and <span style="color: var(--primary-color)">machine learning</span>.</p>
+      </section>
+      
+      
         
-        <section id="experience">
-            <h2>experience</h2>
-            <div class="experience-card">
-              <h3>Research Collaborator</h3>
-              <div class="experience-company">Human Computer Integration Lab - University of Chicago</div>
-              <div class="experience-date">January 2024 - Present</div>
-            </div>
-            
-            <div class="experience-card">
-              <h3>Data Analyst</h3>
-              <div class="experience-company">Fighting Illini Athletics</div>
-              <div class="experience-date">July 2022 - Present</div>
-            </div>
-    
-            <div class="experience-card">
-              <h3>Research Assistant</h3>
-              <div class="experience-company">Center for Health Informatics - University of Illinois at Urbana-Champaign</div>
-              <div class="experience-date">January 2022 - July 2022</div>
-              
-            </div>
-          </section>
-    
-          <section id="publications">
-            <h2>publications</h2>
-            <div class="project-card">
-              <h3>
-                <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
-                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </h3>
-              <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> <strong>In Proceedings of CHI 2025</strong> </p> 
-          </section>
-          
-          <section id="projects">
-            <h2>projects</h2>
-            <div class="project-card">
-              <h3>
-                <a href="#">Fitbit Sleep Score Prediction</a>
-                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </h3>
-              <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
-                Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
-            </div>
-            <div class="project-card">
-              <h3>
-                <a href="#">Athlete Strength Test Analysis</a>
-                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </h3>
-              <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
-                Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
-            </div>
-            <div class="project-card">
-              <h3>
-                <a href="#">Coursera Customer Churn Prediction</a>
-                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </h3>
-              <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
-                Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
-            </div>
-          </section>
+      <section id="experience">
+        <h2>experience</h2>
+        <div class="experience-card">
+          <h3>Research Collaborator</h3>
+          <div class="experience-company">Human Computer Integration Lab - University of Chicago</div>
+          <div class="experience-date">January 2024 - Present</div>
+        </div>
+        
+        <div class="experience-card">
+          <h3>Data Analyst</h3>
+          <div class="experience-company">Fighting Illini Athletics</div>
+          <div class="experience-date">July 2022 - Present</div>
+        </div>
+
+        <div class="experience-card">
+          <h3>Research Assistant</h3>
+          <div class="experience-company">Center for Health Informatics - University of Illinois at Urbana-Champaign</div>
+          <div class="experience-date">January 2022 - July 2022</div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <h2>publications</h2>
+        <div class="project-card">
+          <h3>
+            <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
+          <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> <strong>In Proceedings of CHI 2025</strong> </p> 
+        </div>
+      </section>
+      
+      <section id="projects">
+        <h2>projects</h2>
+        <div class="project-card">
+          <h3>
+            <a href="#">Fitbit Sleep Score Prediction</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
+          <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
+            Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
+        </div>
+        <div class="project-card">
+          <h3>
+            <a href="#">Athlete Strength Test Analysis</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
+          <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
+            Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
+        </div>
+        <div class="project-card">
+          <h3>
+            <a href="#">Coursera Customer Churn Prediction</a>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
+          <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
+            Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
+        </div>
+      </section>
     </main>
   </div>
 
