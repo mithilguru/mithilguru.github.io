@@ -18,7 +18,8 @@
       --name-weight: 600;          
       --section-header-weight: 600; 
       --nav-weight: 400;           
-      --card-header-weight: 500;   
+      --card-header-weight: 500;
+      --medium-weight: 500;   
     }
   
     @supports (font-variation-settings: normal) {
@@ -48,7 +49,7 @@
     h2 {
       font-family: inherit;
       font-weight: var(--section-header-weight);
-      font-size: 2.1em;
+      font-size: 30px;
       margin-bottom: 30px;
       letter-spacing: -0.02em;
     }
@@ -102,7 +103,7 @@
     }
   
     .nav-header {
-      font-size: 1.5em;
+      font-size: 20px;
       margin-bottom: 40px;
     }
   
@@ -118,7 +119,7 @@
     .nav-links a {
       color: var(--secondary-color);
       text-decoration: none;
-      font-size: 1.1em;
+      font-size: 16px;
       transition: color 0.3s ease;
     }
   
@@ -148,20 +149,21 @@
     }
   
     h1 {
-      font-size: 4.5em;
+      font-size: 48px;
       margin-bottom: 32px;
       line-height: 1.1;
     }
 
     #about p:first-of-type {
-      font-size: 2em;
+      font-size: 24px;
       line-height: 1.4;
       margin-bottom: 32px;
       letter-spacing: -0.02em;
+      color: var(--secondary-color);
     }
 
     #about p:last-of-type {
-      font-size: 1.25em;
+      font-size: 16px;
       line-height: 1.7;
       color: var(--secondary-color);
     }
@@ -177,7 +179,7 @@
       background-color: #f5f5f5;
       padding: 5px 10px;
       border-radius: 15px;
-      font-size: 0.9em;
+      font-size: 14px;
     }
   
     .project-card, .experience-card {
@@ -196,7 +198,7 @@
     }
   
     .project-card h3, .experience-card h3 {
-      font-size: 1.5em;
+      font-size: 20px;
       margin-bottom: 10px;
     }
 
@@ -212,7 +214,7 @@
   
     .experience-company {
       font-weight: 500;
-      font-size: 1.25em;
+      font-size: 18px;
       color: var(--highlight-color);
       margin-bottom: 8px;
     }
@@ -220,7 +222,7 @@
     .experience-date {
       color: var(--secondary-color);
       margin-bottom: 15px;
-      font-size: 0.9em;
+      font-size: 14px;
     }
 
     .link-icon {
@@ -257,15 +259,15 @@
       }
   
       h1 {
-        font-size: 3em;
+        font-size: 36px;
       }
   
       #about p:first-of-type {
-        font-size: 1.5em;
+        font-size: 20px;
       }
   
       #about p:last-of-type {
-        font-size: 1.1em;
+        font-size: 14px;
       }
 
       .nav-links {
@@ -300,7 +302,7 @@
     <main>
       <section id="about">
         <h1>mithil guru</h1>
-        <p>I'm a data analyst at <strong>Fighting Illini Athletics</strong> and a research collaborator with the Human-Computer Integration Lab at the <strong>University of Chicago</strong>.</p>
+        <p>I'm a data analyst at <span style="font-weight: 500;">Fighting Illini Athletics</span> and a research collaborator with the Human-Computer Integration Lab at the <span style="font-weight: 500;">University of Chicago</span>.</p>
         <p>Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="color: var(--primary-color)">human-computer interaction</span>, <span style="color: var(--primary-color)">health sensing</span>, and <span style="color: var(--primary-color)">machine learning</span>.</p>
       </section>
         
