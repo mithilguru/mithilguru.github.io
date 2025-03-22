@@ -83,10 +83,10 @@
       position: fixed;
       height: 100vh;
       padding: 40px 0;
-      left: calc(5% - var(--nav-width)/4);
+      left: 5%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       z-index: 2;
     }
   
@@ -96,8 +96,7 @@
       position: relative;
       z-index: 3;
       display: flex;
-      justify-content: center;
-      width: 100%;
+      margin-left: 20px;
     }
   
     .profile-image {
@@ -116,8 +115,7 @@
     .nav-links {
       list-style: none;
       padding: 0;
-      width: 100%;
-      text-align: center;
+      margin-left: 20px;
     }
   
     .nav-links li {
@@ -146,6 +144,7 @@
   
     #about {
       min-height: 100vh;
+      margin-bottom: 40vh;
     }
   
     section {
