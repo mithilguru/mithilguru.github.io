@@ -51,7 +51,7 @@
       font-family: inherit;
       font-weight: var(--section-header-weight);
       font-size: 2.074em;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
       letter-spacing: -0.02em;
       color: var(--primary-color);
     }
@@ -187,8 +187,8 @@
     }
   
     .project-card, .experience-card {
-      margin-bottom: 30px;
-      padding: 0 0 30px 0;
+      margin-bottom: 36px;
+      padding: 0 0 36px 0;
       border-bottom: 1px solid #eaeaea;
       transition: background-color 0.3s ease;
     }
@@ -199,11 +199,13 @@
   
     .project-card:last-child, .experience-card:last-child {
       border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
   
     .project-card h3, .experience-card h3 {
       font-size: 1.44em;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       line-height: 1.3;
     }
 
@@ -221,7 +223,8 @@
       font-weight: 500;
       font-size: 1.2em;
       color: var(--primary-color);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      line-height: 1.3;
     }
   
     .experience-date {
@@ -235,7 +238,7 @@
       color: var(--secondary-color);
       font-size: 1em;
       line-height: 1.5;
-      margin: 8px 0 0 0;
+      margin: 12px 0 0 0;
     }
 
     .link-icon {
@@ -296,8 +299,9 @@
         margin-bottom: 60px;
       }
       
-      #about {
-        /* No special margin needed */
+      .project-card, .experience-card {
+        margin-bottom: 28px;
+        padding: 0 0 28px 0;
       }
     }
   </style>
@@ -319,7 +323,7 @@
     <main>
       <section id="about">
         <h1>mithil guru</h1>
-        <p>I'm a data analyst at <a href="https://fightingillini.com" style="font-weight: 500; color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #ccc;" target="_blank">Fighting Illini Athletics</a> and a research collaborator with the Human-Computer Integration Lab at the <a href="https://lab.plopes.org" style="font-weight: 500; color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #ccc;" target="_blank">University of Chicago</a>.</p>
+        <p>I'm a data analyst at <a href="https://fightingillini.com" style="font-weight: 500; color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #ccc;" target="_blank">Fighting Illini Athletics</a> and a research collaborator with the <a href="https://lab.plopes.org" style="font-weight: 500; color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #ccc;" target="_blank">Human-Computer Integration Lab</a> at the University of Chicago.</p>
         <p>Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="font-weight: 500; color: var(--primary-color)">human-computer interaction</span>, <span style="font-weight: 500; color: var(--primary-color)">health sensing</span>, and <span style="font-weight: 500; color: var(--primary-color)">machine learning</span>.</p>
       </section>
         
