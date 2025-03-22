@@ -75,7 +75,8 @@
       justify-content: center;
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 5%;
+      padding: 0;
+      position: relative;
     }
   
     nav {
@@ -83,7 +84,7 @@
       position: fixed;
       height: 100vh;
       padding: 40px 0;
-      left: 5%;
+      left: calc(50% - var(--content-max-width) / 2 - var(--nav-width) - 40px);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -134,9 +135,9 @@
     }
   
     main {
-      margin-left: var(--nav-width);
+      margin-left: 0;
       padding: 40px 0;
-      width: calc(100% - var(--nav-width));
+      width: 100%;
       max-width: var(--content-max-width);
       position: relative;
       z-index: 1;
