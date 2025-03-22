@@ -92,7 +92,7 @@
   
     .profile-container {
       margin-bottom: 20px;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
       position: relative;
       z-index: 3;
       display: flex;
@@ -412,30 +412,22 @@
       });
     });
 
-    // Profile photo fade out only after completely scrolling past about section
+    // Profile photo visibility toggle based on current section
     const profileContainer = document.getElementById('profile-container');
     const aboutSection = document.getElementById('about');
 
     window.addEventListener('scroll', () => {
-      const aboutBottom = aboutSection.getBoundingClientRect().bottom;
+      // Check if we're viewing the about section
+      const aboutRect = aboutSection.getBoundingClientRect();
+      const isAboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
       
-      // Only start fading out when the bottom of the about section leaves the viewport
-      if (aboutBottom < 0) {
-        // Calculate how far past the about section we've scrolled (within a 200px range)
-        const scrollPastAbout = Math.min(Math.abs(aboutBottom), 200);
-        const fadeOutPercentage = scrollPastAbout / 200;
-        profileContainer.style.opacity = Math.max(0, 1 - fadeOutPercentage);
-        
-        // Completely disable pointer events when fully faded
-        if (fadeOutPercentage >= 0.9) {
-          profileContainer.style.pointerEvents = 'none';
-        } else {
-          profileContainer.style.pointerEvents = 'auto';
-        }
-      } else {
-        // Keep fully visible when about section is still in view
+      // Simple toggle: visible when about is in viewport, hidden otherwise
+      if (isAboutVisible) {
         profileContainer.style.opacity = '1';
-        profileContainer.style.pointerEvents = 'auto';
+        profileContainer.style.visibility = 'visible';
+      } else {
+        profileContainer.style.opacity = '0';
+        profileContainer.style.visibility = 'hidden';
       }
     });
 
