@@ -29,7 +29,7 @@
   
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.6;
+      line-height: 1.5;
       background-color: var(--background-color);
       color: var(--secondary-color);
       margin: 0;
@@ -51,7 +51,7 @@
       font-family: inherit;
       font-weight: var(--section-header-weight);
       font-size: 2.074em;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
       letter-spacing: -0.02em;
       color: var(--primary-color);
     }
@@ -142,15 +142,14 @@
       z-index: 1;
     }
   
-    #about {
-      min-height: auto;
-      margin-bottom: 96px;
-    }
-  
     section {
-      margin-bottom: 96px;
+      margin-bottom: 80px;
       opacity: 0;
       transform: translateY(20px);
+    }
+  
+    #about {
+      min-height: auto;
     }
   
     h1 {
@@ -169,7 +168,7 @@
 
     #about p:last-of-type {
       font-size: 1em;
-      line-height: 1.67;
+      line-height: 1.7;
       color: var(--secondary-color);
     }
   
@@ -188,8 +187,8 @@
     }
   
     .project-card, .experience-card {
-      margin-bottom: 32px;
-      padding: 0 0 32px 0;
+      margin-bottom: 30px;
+      padding: 0 0 30px 0;
       border-bottom: 1px solid #eaeaea;
       transition: background-color 0.3s ease;
     }
@@ -204,7 +203,8 @@
   
     .project-card h3, .experience-card h3 {
       font-size: 1.44em;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      line-height: 1.3;
     }
 
     .project-card h3 a {
@@ -221,18 +221,21 @@
       font-weight: 500;
       font-size: 1.2em;
       color: var(--primary-color);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
   
     .experience-date {
       color: var(--secondary-color);
       margin-bottom: 0;
       font-size: 1em;
+      line-height: 1.3;
     }
 
     .project-card p, .experience-card p {
       color: var(--secondary-color);
       font-size: 1em;
+      line-height: 1.5;
+      margin: 8px 0 0 0;
     }
 
     .link-icon {
@@ -263,7 +266,7 @@
   
       main {
         margin-left: 0;
-        margin-top: 72px;
+        margin-top: 80px;
         width: 100%;
         padding: 20px;
       }
@@ -289,8 +292,12 @@
         margin-bottom: 0;
       }
 
+      section {
+        margin-bottom: 60px;
+      }
+      
       #about {
-        margin-bottom: 60px; /* Standard spacing on mobile */
+        /* No special margin needed */
       }
     }
   </style>
@@ -312,27 +319,27 @@
     <main>
       <section id="about">
         <h1>mithil guru</h1>
-        <p>I'm a data analyst at <span style="font-weight: 500;">Fighting Illini Athletics</span> and a research collaborator with the Human-Computer Integration Lab at the <span style="font-weight: 500;">University of Chicago</span>.</p>
+        <p>I'm a data analyst at <a href="https://fightingillini.com" style="font-weight: 500; color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #ccc;" target="_blank">Fighting Illini Athletics</a> and a research collaborator with the Human-Computer Integration Lab at the <a href="https://lab.plopes.org" style="font-weight: 500; color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #ccc;" target="_blank">University of Chicago</a>.</p>
         <p>Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in <span style="font-weight: 500; color: var(--primary-color)">human-computer interaction</span>, <span style="font-weight: 500; color: var(--primary-color)">health sensing</span>, and <span style="font-weight: 500; color: var(--primary-color)">machine learning</span>.</p>
       </section>
         
       <section id="experience">
         <h2>experience</h2>
         <div class="experience-card">
-          <h3>Human Computer Integration Lab - University of Chicago</h3>
-          <div class="experience-company">Research Collaborator</div>
+          <h3>Research Collaborator</h3>
+          <div class="experience-company">Human Computer Integration Lab - University of Chicago</div>
           <div class="experience-date">January 2024 - Present</div>
         </div>
             
         <div class="experience-card">
-          <h3>Fighting Illini Athletics</h3>
-          <div class="experience-company">Data Analyst</div>
+          <h3>Data Analyst</h3>
+          <div class="experience-company">Fighting Illini Athletics</div>
           <div class="experience-date">July 2022 - Present</div>
         </div>
     
         <div class="experience-card">
-          <h3>Center for Health Informatics - University of Illinois at Urbana-Champaign</h3>
-          <div class="experience-company">Research Assistant</div>
+          <h3>Research Assistant</h3>
+          <div class="experience-company">Center for Health Informatics - University of Illinois at Urbana-Champaign</div>
           <div class="experience-date">January 2022 - July 2022</div>
         </div>
       </section>
