@@ -191,6 +191,8 @@
       padding: 0 0 36px 0;
       border-bottom: 1px solid #eaeaea;
       transition: background-color 0.3s ease;
+      display: flex;
+      gap: 20px;
     }
   
     .project-card:hover, .experience-card:hover {
@@ -201,6 +203,18 @@
       border-bottom: none;
       margin-bottom: 0;
       padding-bottom: 0;
+    }
+
+    .project-image {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .card-content {
+      flex: 1;
     }
   
     .project-card h3, .experience-card h3 {
@@ -301,6 +315,13 @@
       .project-card, .experience-card {
         margin-bottom: 28px;
         padding: 0 0 28px 0;
+        flex-direction: column;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 160px;
+        margin-bottom: 16px;
       }
     }
   </style>
@@ -350,55 +371,67 @@
       <section id="publications">
         <h2>publications</h2>
         <div class="project-card">
-          <h3>
-            <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> <strong>In Proceedings of CHI 2025</strong> </p> 
+          <img src="2025CHI-adaptiveEMS" alt="Adaptive EMS Research" class="project-image">
+          <div class="card-content">
+            <h3>
+              <a href="#">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</a>
+              <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </h3>
+            <p><span style="color: var(--secondary-color)">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, </span><strong>Mithil Guruvugari</strong><span style="color: var(--secondary-color)">, and Pedro Lopes</span><br> <strong>In Proceedings of CHI 2025</strong> </p>
+          </div>
         </div>
       </section>
           
       <section id="projects">
         <h2>projects</h2>
         <div class="project-card">
-          <h3>
-            <a href="#">Fitbit Sleep Score Prediction</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
-            Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
+          <img src="fitbit-tracking.png" alt="Fitbit Tracking Project" class="project-image">
+          <div class="card-content">
+            <h3>
+              <a href="#">Fitbit Sleep Score Prediction</a>
+              <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </h3>
+            <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
+              Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
+          </div>
         </div>
         <div class="project-card">
-          <h3>
-            <a href="#">Athlete Strength Test Analysis</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
-            Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
+          <img src="illinoisstrength-trends.png" alt="Illinois Strength Analysis" class="project-image">
+          <div class="card-content">
+            <h3>
+              <a href="#">Athlete Strength Test Analysis</a>
+              <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </h3>
+            <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
+              Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
+          </div>
         </div>
         <div class="project-card">
-          <h3>
-            <a href="#">Coursera Customer Churn Prediction</a>
-            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </h3>
-          <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
-            Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
+          <img src="coursera-churn.png" alt="Coursera Churn Prediction" class="project-image">
+          <div class="card-content">
+            <h3>
+              <a href="#">Coursera Customer Churn Prediction</a>
+              <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </h3>
+            <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
+              Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
+          </div>
         </div>
       </section>
     </main>
