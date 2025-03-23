@@ -299,16 +299,15 @@
     /* Minimalist theme toggle styles */
     .theme-toggle {
       position: fixed;
-      top: 20px;
-      right: 20px;
+      top: 40px; /* Aligned with the top of the profile picture */
+      right: 1.5%; /* left margin + profile margin + profile width + half profile width */
       z-index: 10;
-      width: 24px;
-      height: 24px;
+      width: 30px; /* Larger dot size */
+      height: 30px; /* Larger dot size */
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease;
     }
     
     .theme-toggle:hover {
@@ -324,27 +323,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.3s ease, transform 0.5s ease;
+      transition: opacity 0.3s ease;
+      font-size: 30px; /* Larger dot size */
     }
     
     .sun-icon {
       opacity: 1;
-      transform: rotate(0deg);
     }
     
     .moon-icon {
       opacity: 0;
-      transform: rotate(-90deg);
     }
     
     [data-theme="dark"] .sun-icon {
       opacity: 0;
-      transform: rotate(90deg);
     }
     
     [data-theme="dark"] .moon-icon {
       opacity: 1;
-      transform: rotate(0deg);
     }
   
     @media (max-width: 768px) {
@@ -419,7 +415,9 @@
       }
       
       .theme-toggle {
-        top: 70px;
+        top: 15px;
+        right: 20px;
+        left: auto;
       }
     }
   </style>
@@ -429,7 +427,7 @@
   <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
     <div class="theme-icon sun-icon">●</div>
     <div class="theme-icon moon-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </div>
