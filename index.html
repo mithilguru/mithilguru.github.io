@@ -299,21 +299,21 @@
     /* Minimalist theme toggle styles */
     .theme-toggle {
       position: fixed;
-      top: 40px; /* Aligned with the top of the profile picture */
-      right: 1.5%; /* left margin + profile margin + profile width + half profile width */
+      top: 40px; /* Precisely aligned with the top of the profile picture */
+      right: 1.5%; 
       z-index: 10;
-      width: 30px; /* Larger dot size */
-      height: 30px; /* Larger dot size */
+      width: 24px; /* 24px size */
+      height: 24px; /* 24px size */
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
+
     .theme-toggle:hover {
       transform: scale(1.1);
     }
-    
+
     .theme-icon {
       position: absolute;
       top: 0;
@@ -324,21 +324,26 @@
       align-items: center;
       justify-content: center;
       transition: opacity 0.3s ease;
-      font-size: 30px; /* Larger dot size */
     }
-    
+
     .sun-icon {
       opacity: 1;
+      font-size: 24px; /* Match 24px size */
     }
-    
+
     .moon-icon {
       opacity: 0;
     }
-    
+
+    .moon-icon svg {
+      width: 24px; /* Match 24px size */
+      height: 24px; /* Match 24px size */
+    }
+
     [data-theme="dark"] .sun-icon {
       opacity: 0;
     }
-    
+
     [data-theme="dark"] .moon-icon {
       opacity: 1;
     }
@@ -417,7 +422,6 @@
       .theme-toggle {
         top: 15px;
         right: 20px;
-        left: auto;
       }
     }
   </style>
