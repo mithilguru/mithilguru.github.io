@@ -186,7 +186,7 @@
       font-size: 0.9em;
     }
   
-    .project-card, .publication-card {
+    .project-card {
       margin-bottom: 36px;
       padding: 0 0 36px 0;
       border-bottom: 1px solid #eaeaea;
@@ -202,11 +202,11 @@
       transition: background-color 0.3s ease;
     }
   
-    .project-card:hover, .experience-card:hover, .publication-card:hover {
+    .project-card:hover, .experience-card:hover {
       background-color: #f9f9f9;
     }
   
-    .project-card:last-child, .experience-card:last-child, .publication-card:last-child {
+    .project-card:last-child, .experience-card:last-child {
       border-bottom: none;
       margin-bottom: 0;
       padding-bottom: 0;
@@ -222,6 +222,24 @@
 
     .card-content {
       flex: 1;
+    }
+    
+    .publication-card h3, .project-card h3 {
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    
+    .publication-card p, .project-card p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    .authors {
+      margin-bottom: 4px;
+    }
+    
+    .venue {
+      font-weight: 500;
     }
   
     .project-card h3, .experience-card h3 {
@@ -319,7 +337,7 @@
         margin-bottom: 60px;
       }
       
-      .project-card, .publication-card {
+      .project-card {
         margin-bottom: 28px;
         padding: 0 0 28px 0;
         flex-direction: column;
@@ -382,7 +400,7 @@
     
       <section id="publications">
         <h2>publications</h2>
-        <div class="publication-card">
+        <div class="project-card">
           <img src="2025CHI-adaptiveEMS.png" alt="Adaptive EMS Research" class="project-image">
           <div class="card-content">
             <h3>
@@ -411,8 +429,8 @@
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
             </h3>
-            <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction <br>
-              Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91 </p>
+            <p>Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction</p>
+            <p>Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91</p>
           </div>
         </div>
         <div class="project-card">
@@ -426,8 +444,8 @@
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
             </h3>
-            <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform <br>
-              Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes </p>
+            <p>Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform</p>
+            <p>Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes</p>
           </div>
         </div>
         <div class="project-card">
@@ -441,8 +459,8 @@
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
             </h3>
-            <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera <br>
-              Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide </p>
+            <p>Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera</p>
+            <p>Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide</p>
           </div>
         </div>
       </section>
