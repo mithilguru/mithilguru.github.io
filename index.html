@@ -13,12 +13,23 @@
       --secondary-color: #666666;
       --highlight-color: #000000;
       --background-color: #ffffff;
+      --card-hover-color: #f9f9f9;
+      --border-color: #eaeaea;
       --nav-width: 220px;
       --content-max-width: 810px;
       --name-weight: 600;          
       --section-header-weight: 600; 
       --nav-weight: 400;           
       --card-header-weight: 500;   
+    }
+    
+    [data-theme="dark"] {
+      --primary-color: #ffffff;
+      --secondary-color: #aaaaaa;
+      --highlight-color: #ffffff;
+      --background-color: #121212;
+      --card-hover-color: #1e1e1e;
+      --border-color: #333333;
     }
   
     @supports (font-variation-settings: normal) {
@@ -38,6 +49,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-feature-settings: 'ss01' on, 'ss02' on, 'cv01' on, 'cv03' on;
       font-size: 1em;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
   
     h1, .nav-header {
@@ -45,6 +57,7 @@
       font-weight: var(--name-weight);
       letter-spacing: -0.03em;
       color: var(--primary-color);
+      transition: color 0.3s ease;
     }
   
     h2 {
@@ -54,6 +67,7 @@
       margin-bottom: 32px;
       letter-spacing: -0.02em;
       color: var(--primary-color);
+      transition: color 0.3s ease;
     }
   
     .nav-links {
@@ -68,6 +82,7 @@
       font-weight: var(--card-header-weight);
       letter-spacing: -0.01em;
       color: var(--primary-color);
+      transition: color 0.3s ease;
     }
   
     .container {
@@ -164,12 +179,14 @@
       margin-bottom: 32px;
       letter-spacing: -0.02em;
       color: var(--primary-color);
+      transition: color 0.3s ease;
     }
 
     #about p:last-of-type {
       font-size: 1em;
       line-height: 1.7;
       color: var(--secondary-color);
+      transition: color 0.3s ease;
     }
   
     .skills-list {
@@ -189,7 +206,7 @@
     .project-card {
       margin-bottom: 36px;
       padding: 0 0 36px 0;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid var(--border-color);
       transition: background-color 0.3s ease;
       display: flex;
       gap: 20px;
@@ -199,12 +216,12 @@
     .experience-card {
       margin-bottom: 36px;
       padding: 0 0 36px 0;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid var(--border-color);
       transition: background-color 0.3s ease;
     }
   
     .project-card:hover, .experience-card:hover {
-      background-color: #f9f9f9;
+      background-color: var(--card-hover-color);
     }
   
     .project-card:last-child, .experience-card:last-child {
@@ -235,6 +252,7 @@
       color: var(--primary-color);
       text-decoration: none;
       margin-right: 10px;
+      transition: color 0.3s ease;
     }
 
     .project-card h3 a:hover {
@@ -247,6 +265,7 @@
       color: var(--primary-color);
       margin-bottom: 5px;
       line-height: 1.3;
+      transition: color 0.3s ease;
     }
   
     .experience-date {
@@ -254,6 +273,7 @@
       margin-bottom: 0;
       font-size: 1em;
       line-height: 1.3;
+      transition: color 0.3s ease;
     }
 
     .project-card p, .experience-card p {
@@ -261,6 +281,7 @@
       font-size: 1em;
       line-height: 1.5;
       margin: 0;
+      transition: color 0.3s ease;
     }
 
     .project-card p + p {
@@ -273,6 +294,90 @@
       opacity: 0.6;
       margin-left: 5px;
       vertical-align: middle;
+    }
+
+    /* Theme toggle styles */
+    .theme-switch-wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .theme-switch {
+      display: inline-block;
+      height: 34px;
+      position: relative;
+      width: 60px;
+    }
+
+    .theme-switch input {
+      display: none;
+    }
+
+    .slider {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      background-color: #000;
+      bottom: 4px;
+      content: "";
+      height: 26px;
+      left: 4px;
+      position: absolute;
+      transition: .4s;
+      width: 26px;
+      border-radius: 50%;
+    }
+
+    [data-theme="dark"] .slider {
+      background-color: #333;
+    }
+
+    [data-theme="dark"] .slider:before {
+      background-color: #fff;
+      transform: translateX(26px);
+    }
+    
+    /* Moon and Sun icons */
+    .theme-icon {
+      position: absolute;
+      top: 0;
+      height: 34px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    
+    .sun-icon {
+      left: 5px;
+      opacity: 1;
+    }
+    
+    .moon-icon {
+      right: 5px;
+      opacity: 0;
+    }
+    
+    [data-theme="dark"] .sun-icon {
+      opacity: 0;
+    }
+    
+    [data-theme="dark"] .moon-icon {
+      opacity: 1;
     }
   
     @media (max-width: 768px) {
@@ -287,6 +392,10 @@
         backdrop-filter: blur(8px);
         flex-direction: row;
         justify-content: space-between;
+      }
+      
+      [data-theme="dark"] nav {
+        background-color: rgba(18, 18, 18, 0.9);
       }
   
       .profile-container {
@@ -341,10 +450,29 @@
         height: 180px;
         margin-bottom: 16px;
       }
+      
+      .theme-switch-wrapper {
+        top: 70px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Dark Mode Toggle -->
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider">
+        <div class="theme-icon sun-icon">●</div>
+        <div class="theme-icon moon-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </div>
+      </div>
+    </label>
+  </div>
+  
   <div class="container">
     <nav>
       <div class="profile-container" id="profile-container">
@@ -456,6 +584,31 @@
   </div>
 
   <script>
+    // Theme switcher functionality
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Set theme based on local storage or default to light
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+      }
+    }
+
+    // Function to switch theme
+    function switchTheme(e) {
+      if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
     gsap.registerPlugin(ScrollTrigger);
 
     // GSAP animations
