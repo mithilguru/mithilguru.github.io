@@ -31,6 +31,18 @@
       --card-hover-color: #1e1e1e;
       --border-color: #333333;
     }
+    
+    /* Add system preference dark mode support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #ffffff;
+        --secondary-color: #aaaaaa;
+        --highlight-color: #ffffff;
+        --background-color: #121212;
+        --card-hover-color: #1e1e1e;
+        --border-color: #333333;
+      }
+    }
   
     @supports (font-variation-settings: normal) {
       body {
@@ -384,13 +396,15 @@
       }
 
       .nav-links {
-      display: flex;
-      justify-content: space-around;
+        display: flex;
+        justify-content: flex-start; /* Align to the left */
+        padding-left: 12px; /* Add padding from left edge */
+      }
+  
+      .nav-links li {
+        margin: 0 6px 0 0; /* Add space to the right of each item */
       }
 
-      .nav-links li {
-      margin: 0 6px; 
-      }
       .nav-header {
         margin-bottom: 0;
       }
@@ -400,8 +414,8 @@
       }
       
       .project-card h3, .experience-card h3 {
-      font-size: 1.2em;
-    }
+        font-size: 1.2em;
+      }
 
       .project-card {
         margin-bottom: 28px;
@@ -422,8 +436,7 @@
       }
       
       .theme-toggle {
-        top: 15px;
-        right: 20px;
+        display: none; /* Hide theme toggle on mobile */
       }
     }
   </style>
@@ -550,91 +563,100 @@
   </div>
 
   <script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-
-    // Set theme based on local storage or default to light
-    if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-    }
-
-    // Toggle theme on click
-    themeToggle.addEventListener('click', () => {
-      let theme = 'light';
+    // Theme functionality modification - respect system preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
       
-      if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-        theme = 'dark';
+      // Function to set theme based on system preference
+      function setThemeBasedOnSystemPreference() {
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = prefersDarkMode ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
       }
       
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    // GSAP animations
-    gsap.utils.toArray("section").forEach(section => {
-      gsap.to(section, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top center+=100",
-          toggleActions: "play none none reverse"
-        }
-      });
-    });
-
-    // Profile photo visibility toggle based on current section
-    const profileContainer = document.getElementById('profile-container');
-    const aboutSection = document.getElementById('about');
-
-    window.addEventListener('scroll', () => {
-      // Check if we're viewing the about section
-      const aboutRect = aboutSection.getBoundingClientRect();
-      const isAboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
+      // Initial theme setting
+      setThemeBasedOnSystemPreference();
       
-      // Simple toggle: visible when about is in viewport, hidden otherwise
-      if (isAboutVisible) {
-        profileContainer.style.opacity = '1';
-        profileContainer.style.visibility = 'visible';
-      } else {
-        profileContainer.style.opacity = '0';
-        profileContainer.style.visibility = 'hidden';
-      }
-    });
-
-    // Active section highlighting
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-          current = section.getAttribute('id');
+      // Update theme when system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeBasedOnSystemPreference);
+      
+      // On desktop, allow manual toggle if desired
+      themeToggle.addEventListener('click', () => {
+        // Only for non-mobile devices
+        if (window.innerWidth > 768) {
+          let theme = 'light';
+          if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+            theme = 'dark';
+          }
+          document.documentElement.setAttribute('data-theme', theme);
         }
       });
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-          link.classList.add('active');
+      gsap.registerPlugin(ScrollTrigger);
+
+      // GSAP animations
+      gsap.utils.toArray("section").forEach(section => {
+        gsap.to(section, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top center+=100",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+
+      // Profile photo visibility toggle based on current section
+      const profileContainer = document.getElementById('profile-container');
+      const aboutSection = document.getElementById('about');
+
+      window.addEventListener('scroll', () => {
+        // Check if we're viewing the about section
+        const aboutRect = aboutSection.getBoundingClientRect();
+        const isAboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
+        
+        // Simple toggle: visible when about is in viewport, hidden otherwise
+        if (isAboutVisible) {
+          profileContainer.style.opacity = '1';
+          profileContainer.style.visibility = 'visible';
+        } else {
+          profileContainer.style.opacity = '0';
+          profileContainer.style.visibility = 'hidden';
         }
       });
-    });
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+      // Active section highlighting
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
         });
       });
     });
