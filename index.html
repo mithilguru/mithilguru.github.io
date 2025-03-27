@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mithil Guru</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css">
   <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    
     :root {
       --primary-color: #000000;
       --secondary-color: #666666;
@@ -403,7 +409,7 @@
       }
   
       .nav-links li {
-        margin: 0 6px 0 0; /* Add space to the right of each item */
+        margin: 0 8px 0 0; /* Add space to the right of each item */
       }
 
       .nav-header {
@@ -436,8 +442,31 @@
         margin-bottom: 16px;
       }
       
+      /* Mobile theme toggle */
       .theme-toggle {
-        display: none; /* Hide theme toggle on mobile */
+        position: static; /* Changed from fixed to static */
+        top: auto;
+        right: auto;
+        width: auto;
+        height: auto;
+        margin-left: 15px;
+        margin-right: 20px;
+        align-self: center;
+      }
+      
+      .theme-icon {
+        position: relative; /* Changed from absolute to relative */
+        width: 20px;
+        height: 20px;
+      }
+      
+      .sun-icon {
+        font-size: 20px; /* Smaller for mobile */
+      }
+      
+      .moon-icon svg {
+        width: 20px; /* Smaller for mobile */
+        height: 20px; /* Smaller for mobile */
       }
     }
     
@@ -459,16 +488,6 @@
   </style>
 </head>
 <body>
-  <!-- Minimal Theme Toggle -->
-  <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <div class="theme-icon sun-icon">●</div>
-    <div class="theme-icon moon-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    </div>
-  </div>
-  
   <div class="container">
     <nav>
       <div class="profile-container" id="profile-container">
@@ -480,6 +499,15 @@
         <li><a href="#publications">publications</a></li>
         <li><a href="#projects">projects</a></li>
       </ul>
+      <!-- Theme Toggle moved inside nav for mobile -->
+      <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <div class="theme-icon sun-icon">●</div>
+        <div class="theme-icon moon-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </div>
+      </div>
     </nav>
 
     <main>
@@ -602,6 +630,15 @@
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme); // Save user preference
+      });
+
+      // Listen for system theme changes if no saved preference
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          // Only apply system preference if user hasn't manually set a theme
+          const newTheme = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+        }
       });
 
       gsap.registerPlugin(ScrollTrigger);
