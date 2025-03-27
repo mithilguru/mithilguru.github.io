@@ -38,9 +38,9 @@
       --border-color: #333333;
     }
     
-    /* Add system preference dark mode support */
+    /* System preference dark mode support */
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme]) {
+      :root {
         --primary-color: #ffffff;
         --secondary-color: #aaaaaa;
         --highlight-color: #ffffff;
@@ -373,6 +373,7 @@
         backdrop-filter: blur(8px);
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
       }
       
       [data-theme="dark"] nav {
@@ -447,26 +448,31 @@
         position: static; /* Changed from fixed to static */
         top: auto;
         right: auto;
-        width: auto;
-        height: auto;
+        width: 24px;
+        height: 24px;
         margin-left: 15px;
         margin-right: 20px;
-        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       
       .theme-icon {
-        position: relative; /* Changed from absolute to relative */
-        width: 20px;
-        height: 20px;
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       
       .sun-icon {
-        font-size: 20px; /* Smaller for mobile */
+        font-size: 24px;
       }
       
       .moon-icon svg {
-        width: 20px; /* Smaller for mobile */
-        height: 20px; /* Smaller for mobile */
+        width: 24px;
+        height: 24px;
       }
     }
     
@@ -608,22 +614,19 @@
   </div>
 
   <script>
-    // Updated theme toggle functionality
+    // Detect system theme and apply it as the default theme
     document.addEventListener('DOMContentLoaded', function() {
       const themeToggle = document.getElementById('theme-toggle');
       const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('theme');
-
-      // Set initial theme based on user preference (saved theme has priority over system)
-      if (savedTheme) {
-        // Use saved theme if available
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else if (prefersDarkMode) {
-        // If no saved theme, use system preference
+      
+      // Apply system theme preference by default (without saving to localStorage)
+      if (prefersDarkMode) {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
 
-      // Toggle theme on click
+      // Toggle theme on click and save preference
       themeToggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -632,14 +635,20 @@
         localStorage.setItem('theme', newTheme); // Save user preference
       });
 
-      // Listen for system theme changes if no saved preference
+      // Listen for system theme changes
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only apply system preference if user hasn't manually set a theme
         if (!localStorage.getItem('theme')) {
-          // Only apply system preference if user hasn't manually set a theme
           const newTheme = e.matches ? 'dark' : 'light';
           document.documentElement.setAttribute('data-theme', newTheme);
         }
       });
+
+      // Check for saved theme preference and apply it (overriding system preference)
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
 
       gsap.registerPlugin(ScrollTrigger);
 
