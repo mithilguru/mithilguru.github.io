@@ -38,7 +38,7 @@
       --border-color: #333333;
     }
     
-    /* Add system preference dark mode support */
+    /* Device theme detection */
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme]) {
         --primary-color: #ffffff;
@@ -373,7 +373,7 @@
         backdrop-filter: blur(8px);
         flex-direction: row;
         justify-content: space-between;
-        align-items: center; /* Centers all items vertically in the nav */
+        align-items: center; /* Center items vertically */
       }
       
       [data-theme="dark"] nav {
@@ -443,8 +443,7 @@
         margin-bottom: 16px;
       }
       
-      /* Mobile theme toggle */
-       /* Fixed mobile theme toggle */
+      /* Mobile theme toggle with fixed positioning */
       .theme-toggle {
         position: relative;
         top: auto;
@@ -456,10 +455,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Remove align-self if you had it, as nav's align-items will handle it */
       }
       
-      /* Keep the rest of your theme toggle styles the same */
       .theme-icon {
         position: absolute;
         top: 0;
@@ -619,36 +616,40 @@
   </div>
 
   <script>
-    // Updated theme toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
       const themeToggle = document.getElementById('theme-toggle');
       const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const savedTheme = localStorage.getItem('theme');
-
-      // Set initial theme based on user preference (saved theme has priority over system)
+      
+      // Apply saved theme if it exists (user preference)
       if (savedTheme) {
-        // Use saved theme if available
         document.documentElement.setAttribute('data-theme', savedTheme);
-      } else if (prefersDarkMode) {
-        // If no saved theme, use system preference
-        document.documentElement.setAttribute('data-theme', 'dark');
       }
-
+      // Otherwise, let the CSS media query handle it automatically
+      
       // Toggle theme on click
       themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        // Check current theme (could be from localStorage or system default via CSS)
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                     (!document.documentElement.hasAttribute('data-theme') && prefersDarkMode);
         
+        // Toggle and save the new preference
+        const newTheme = isDark ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme); // Save user preference
+        localStorage.setItem('theme', newTheme);
       });
-
-      // Listen for system theme changes if no saved preference
+      
+      // Listen for system theme changes 
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only apply system preference if user hasn't made a choice
         if (!localStorage.getItem('theme')) {
-          // Only apply system preference if user hasn't manually set a theme
-          const newTheme = e.matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', newTheme);
+          if (e.matches) {
+            // System switched to dark mode
+            document.documentElement.removeAttribute('data-theme'); // Let CSS handle it
+          } else {
+            // System switched to light mode
+            document.documentElement.removeAttribute('data-theme'); // Let CSS handle it
+          }
         }
       });
 
