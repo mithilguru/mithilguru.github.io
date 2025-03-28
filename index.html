@@ -4,16 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mithil Guru</title>
+  <!-- External libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css">
   <style>
+    /* CSS Reset and Base Styles */
     html {
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
       text-size-adjust: 100%;
     }
     
+    /* CSS Variables for Theming */
     :root {
       --primary-color: #000000;
       --secondary-color: #666666;
@@ -29,6 +32,7 @@
       --card-header-weight: 500;   
     }
     
+    /* Dark Theme Variables */
     [data-theme="dark"] {
       --primary-color: #ffffff;
       --secondary-color: #aaaaaa;
@@ -38,7 +42,7 @@
       --border-color: #333333;
     }
     
-    /* Add system preference dark mode support */
+    /* System Preference Dark Mode Support */
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme]) {
         --primary-color: #ffffff;
@@ -50,6 +54,7 @@
       }
     }
   
+    /* Typography */
     @supports (font-variation-settings: normal) {
       body {
         font-family: 'Inter var', sans-serif;
@@ -103,6 +108,7 @@
       transition: color 0.3s ease;
     }
   
+    /* Layout */
     .container {
       display: flex;
       justify-content: center;
@@ -112,6 +118,7 @@
       position: relative;
     }
   
+    /* Navigation */
     nav {
       width: var(--nav-width);
       position: fixed;
@@ -162,6 +169,7 @@
       color: var(--primary-color);
     }
   
+    /* Main Content */
     main {
       width: var(--content-max-width);
       padding: 40px 0;
@@ -202,20 +210,7 @@
       transition: color 0.3s ease;
     }
   
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-  
-    .skill-tag {
-      background-color: #f5f5f5;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 0.9em;
-    }
-  
+    /* Project and Experience Cards */
     .project-card {
       margin-bottom: 36px;
       padding: 0 0 36px 0;
@@ -309,14 +304,14 @@
       vertical-align: middle;
     }
 
-    /* Minimalist theme toggle styles */
+    /* Theme Toggle */
     .theme-toggle {
       position: fixed;
-      top: 80px; /* Precisely aligned with the top of the profile picture */
+      top: 80px;
       right: 3%; 
       z-index: 10;
-      width: 28px; /* 24px size */
-      height: 28px; /* 24px size */
+      width: 28px;
+      height: 28px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -341,7 +336,7 @@
 
     .sun-icon {
       opacity: 1;
-      font-size: 28px; /* Match 24px size */
+      font-size: 28px;
     }
 
     .moon-icon {
@@ -349,8 +344,8 @@
     }
 
     .moon-icon svg {
-      width: 28px; /* Match 24px size */
-      height: 28px; /* Match 24px size */
+      width: 28px;
+      height: 28px;
     }
 
     [data-theme="dark"] .sun-icon {
@@ -361,6 +356,7 @@
       opacity: 1;
     }
   
+    /* Responsive Design - Mobile */
     @media (max-width: 768px) {
       nav {
         width: 100%;
@@ -368,12 +364,12 @@
         position: fixed;
         top: 0;
         left: 0;
-        padding: 20px 20px 20px 0; /* Remove left padding, keep right padding */
+        padding: 20px 20px 20px 0;
         background-color: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(8px);
         flex-direction: row;
         justify-content: space-between;
-        align-items: center; /* Centers all items vertically in the nav */
+        align-items: center;
       }
       
       [data-theme="dark"] nav {
@@ -404,13 +400,13 @@
 
       .nav-links {
         display: flex;
-        justify-content: flex-start; /* Align to the left */
-        padding-left: 0; /* Remove left padding */
-        margin-left: 20px; /* Add margin to align with content */
+        justify-content: flex-start;
+        padding-left: 0;
+        margin-left: 20px;
       }
   
       .nav-links li {
-        margin: 0 8px 0 0; /* Add space to the right of each item */
+        margin: 0 8px 0 0;
       }
 
       .nav-header {
@@ -444,7 +440,6 @@
       }
       
       /* Mobile theme toggle */
-       /* Fixed mobile theme toggle */
       .theme-toggle {
         position: relative;
         top: auto;
@@ -456,10 +451,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Remove align-self if you had it, as nav's align-items will handle it */
       }
       
-      /* Keep the rest of your theme toggle styles the same */
       .theme-icon {
         position: absolute;
         top: 0;
@@ -481,15 +474,15 @@
       }
     }
     
-    /* Minimal landscape mode fix - only adjusts navigation positioning */
+    /* Landscape Mode Responsive Adjustments */
     @media (orientation: landscape) and (max-width: 768px) {
       nav {
-        padding: 10px 10px 10px 0; /* Remove left padding for alignment */
+        padding: 10px 10px 10px 0;
       }
       
       .nav-links {
-        padding-left: 0; /* Remove left padding */
-        margin-left: 20px; /* Match main content alignment */
+        padding-left: 0;
+        margin-left: 20px;
       }
       
       main {
@@ -510,7 +503,6 @@
         <li><a href="#publications">publications</a></li>
         <li><a href="#projects">projects</a></li>
       </ul>
-      <!-- Theme Toggle moved inside nav for mobile -->
       <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <div class="theme-icon sun-icon">●</div>
         <div class="theme-icon moon-icon">
@@ -619,18 +611,37 @@
   </div>
 
   <script>
-    // Updated theme toggle functionality
+    /**
+     * Main website functionality
+     * Handles theme switching, animations, and navigation
+     */
     document.addEventListener('DOMContentLoaded', function() {
+      // Theme management
+      initThemeToggle();
+      
+      // Initialize GSAP animations
+      initAnimations();
+      
+      // Profile visibility management
+      initProfileVisibility();
+      
+      // Active section highlighting and smooth scrolling
+      initNavigation();
+    });
+
+    /**
+     * Initialize theme toggle functionality
+     * Handles system preferences and user settings
+     */
+    function initThemeToggle() {
       const themeToggle = document.getElementById('theme-toggle');
       const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const savedTheme = localStorage.getItem('theme');
 
-      // Set initial theme based on user preference (saved theme has priority over system)
+      // Set initial theme based on saved preference or system setting
       if (savedTheme) {
-        // Use saved theme if available
         document.documentElement.setAttribute('data-theme', savedTheme);
       } else if (prefersDarkMode) {
-        // If no saved theme, use system preference
         document.documentElement.setAttribute('data-theme', 'dark');
       }
 
@@ -640,21 +651,24 @@
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme); // Save user preference
+        localStorage.setItem('theme', newTheme);
       });
 
-      // Listen for system theme changes if no saved preference
+      // Listen for system theme changes
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
-          // Only apply system preference if user hasn't manually set a theme
           const newTheme = e.matches ? 'dark' : 'light';
           document.documentElement.setAttribute('data-theme', newTheme);
         }
       });
+    }
 
+    /**
+     * Initialize GSAP animations for sections
+     */
+    function initAnimations() {
       gsap.registerPlugin(ScrollTrigger);
 
-      // GSAP animations
       gsap.utils.toArray("section").forEach(section => {
         gsap.to(section, {
           opacity: 1,
@@ -668,49 +682,56 @@
           }
         });
       });
+    }
 
-      // Profile photo visibility toggle based on current section
+    /**
+     * Initialize profile photo visibility logic
+     */
+    function initProfileVisibility() {
       const profileContainer = document.getElementById('profile-container');
       const aboutSection = document.getElementById('about');
 
-      window.addEventListener('scroll', () => {
-        // Check if we're viewing the about section
+      function updateProfileVisibility() {
         const aboutRect = aboutSection.getBoundingClientRect();
         const isAboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
         
-        // Simple toggle: visible when about is in viewport, hidden otherwise
-        if (isAboutVisible) {
-          profileContainer.style.opacity = '1';
-          profileContainer.style.visibility = 'visible';
-        } else {
-          profileContainer.style.opacity = '0';
-          profileContainer.style.visibility = 'hidden';
-        }
-      });
+        profileContainer.style.opacity = isAboutVisible ? '1' : '0';
+        profileContainer.style.visibility = isAboutVisible ? 'visible' : 'hidden';
+      }
 
-      // Active section highlighting
+      window.addEventListener('scroll', updateProfileVisibility);
+      updateProfileVisibility(); // Initial check
+    }
+
+    /**
+     * Initialize navigation highlighting and smooth scrolling
+     */
+    function initNavigation() {
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('.nav-links a');
 
-      window.addEventListener('scroll', () => {
-        let current = '';
+      // Update active nav link based on scroll position
+      function updateActiveNavLink() {
+        let currentSection = '';
         sections.forEach(section => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.clientHeight;
           if (pageYOffset >= sectionTop - sectionHeight / 3) {
-            current = section.getAttribute('id');
+            currentSection = section.getAttribute('id');
           }
         });
 
         navLinks.forEach(link => {
           link.classList.remove('active');
-          if (link.getAttribute('href').slice(1) === current) {
+          if (link.getAttribute('href').slice(1) === currentSection) {
             link.classList.add('active');
           }
         });
-      });
+      }
 
-      // Smooth scrolling
+      window.addEventListener('scroll', updateActiveNavLink);
+      
+      // Set up smooth scrolling for nav links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
@@ -719,7 +740,7 @@
           });
         });
       });
-    });
+    }
   </script>
 </body>
 </html>
