@@ -25,10 +25,10 @@
       --border-color: #eaeaea;
       --nav-width: 220px;
       --content-max-width: 810px;
-      --name-weight: 700;          
-      --section-header-weight: 700; 
-      --nav-weight: 500;           
-      --card-header-weight: 600;   
+      --name-weight: 600;          
+      --section-header-weight: 600; 
+      --nav-weight: 400;           
+      --card-header-weight: 500;   
     }
     
     /* Dark Theme Variables */
@@ -55,7 +55,7 @@
   
     /* Typography */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
       line-height: 1.5;
       background-color: var(--background-color);
       color: var(--secondary-color);
@@ -70,15 +70,15 @@
   
     h1, .nav-header {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-weight: var(--name-weight);
+      letter-spacing: -0.03em;
       color: var(--primary-color);
       transition: color 0.3s ease;
     }
   
     h2 {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
-      font-weight: 700;
+      font-weight: var(--section-header-weight);
       font-size: 2.074em;
       margin-bottom: 32px;
       letter-spacing: -0.02em;
@@ -87,16 +87,16 @@
     }
   
     .nav-links {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
-      font-weight: 500;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
+      font-weight: var(--nav-weight);
       font-size: 1em;
     }
   
     .project-card h3,
     .experience-card h3 {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', 'San Francisco', 'Helvetica Neue', sans-serif;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      font-weight: var(--card-header-weight);
+      letter-spacing: -0.01em;
       color: var(--primary-color);
       transition: color 0.3s ease;
     }
@@ -189,19 +189,17 @@
 
     #about p:first-of-type {
       font-size: 1.44em;
-      line-height: 1.3;
+      line-height: 1.4;
       margin-bottom: 32px;
       letter-spacing: -0.02em;
       color: var(--primary-color);
-      font-weight: 500;
       transition: color 0.3s ease;
     }
 
     #about p:last-of-type {
       font-size: 1em;
-      line-height: 1.5;
+      line-height: 1.7;
       color: var(--secondary-color);
-      font-weight: 450;
       transition: color 0.3s ease;
     }
   
@@ -263,12 +261,11 @@
     }
   
     .experience-company {
-      font-weight: 550;
+      font-weight: 500;
       font-size: 1.2em;
       color: var(--primary-color);
       margin-bottom: 5px;
       line-height: 1.3;
-      letter-spacing: -0.01em;
       transition: color 0.3s ease;
     }
   
