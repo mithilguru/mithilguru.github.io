@@ -30,9 +30,10 @@
     /* Exact i-D recreation */
     .id-title {
       font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 2.25rem; /* 36px - matches i-D exactly */
+      font-size: 36px; /* Exact pixel value */
       font-style: normal;
-      font-weight: 400; 
+      font-weight: 400;
+      font-stretch: 100%; /* Normal width - might need adjustment */
       line-height: 105%; /* Exact match to i-D */
       letter-spacing: -0.135rem; /* Exact match to i-D */
       color: white;
@@ -61,7 +62,7 @@
     
     .test-title {
       font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 2.25rem;
+      font-size: 36px;
       font-style: normal;
       line-height: 105%;
       letter-spacing: -0.135rem;
@@ -69,6 +70,16 @@
       margin-bottom: 20px;
       display: block;
     }
+    
+    /* Different stretch values to hit target width */
+    .stretch-100 { font-stretch: 100%; }
+    .stretch-115 { font-stretch: 115%; }
+    .stretch-125 { font-stretch: 125%; }
+    
+    /* Letter spacing adjustments */
+    .spacing-normal { letter-spacing: -0.135rem; }
+    .spacing-tight { letter-spacing: -0.1rem; }
+    .spacing-looser { letter-spacing: -0.05rem; }
     
     /* Highlight on hover to see dimensions */
     .id-title:hover,
@@ -91,8 +102,9 @@
   <div class="comparison">
     <h2>Weight Comparison (same size, line-height, letter-spacing):</h2>
     
-    <div class="test-title weight-400">mithil guru</div>
-    <div class="test-title weight-500">mithil guru</div>
+    <div class="test-title weight-400">mithil guru (400)</div>
+    <div class="test-title weight-450">mithil guru (450)</div>
+    <div class="test-title weight-500">mithil guru (500)</div>
   </div>
   
   <div class="note">
@@ -101,7 +113,7 @@
     • Size: 2.25rem (36px)<br>
     • Line height: 105%<br>
     • Letter spacing: -0.135rem (-2.16px)<br>
-    • Weight: 400 (adjusted for Pro version)<br><br>
+    • Weight: 440 (adjusted for Pro version)<br><br>
     
     <em>Hover over titles to see dimensions. Your target: ~158.59px width × 36px height</em>
   </div>
