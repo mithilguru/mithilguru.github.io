@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mithil Guru</title>
-  <!-- Adobe Fonts - Replace with your kit ID -->
   <link rel="stylesheet" href="https://use.typekit.net/jbh1mxc.css">
   <style>
     * {
@@ -23,62 +22,121 @@
       background: #fff;
       color: #000;
       padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
     }
     
-    .id-title {
+    /* Base i-D typography */
+    .id-text {
       font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 2.25rem;
       font-weight: 400;
-      text-size-adjust: 100%;
-      line-height: 100%;
-      letter-spacing: -.133rem;
+      font-variation-settings: "wght" 400;
+      line-height: 105%;
       color: black;
-      display: inline-block;
+      display: block;
+    }
+    
+    /* Typography variants */
+    .id-title {
+      font-size: 2.25rem;
+      letter-spacing: -.133rem;
+      margin-bottom: 2rem;
     }
 
-    .id-subtitle {
-      font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    .id-section {
       font-size: 1.75rem;
-      font-weight: 400;
-      text-size-adjust: 100%;
-      line-height: 100%;
       letter-spacing: -.103rem;
-      color: black;
-      display: inline-block;
+      margin-bottom: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .id-item {
+      font-size: 18px;
+      margin-bottom: 1.5rem;
+    }
+
+    .id-intro {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     .id-body {
-      font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
       font-size: 14px;
-      font-weight: 400;
-      text-size-adjust: 100%;
-      line-height: 100%;
-      color: black;
-      display: inline-block;
-    }
-    
-    
-    .id-title:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      outline: 1px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 1rem;
     }
 
-    .id-subtitle:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      outline: 1px solid rgba(255, 255, 255, 0.3);
+    .id-meta {
+      font-size: 14px;
+      margin-bottom: 0.5rem;
     }
 
-    .id-body:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      outline: 1px solid rgba(255, 255, 255, 0.3);
+    /* Spacing */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .item {
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
-  <h1 class="id-title">Mithil Guru</h1>
-  <br>
-  <h2 class="id-subtitle">About</h2>
-  <br>
-  <mono class="id-body">Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living.</mono>
+  <!-- Header -->
+  <h1 class="id-text id-title">mithil guru</h1>
+
+  <!-- About -->
+  <div class="section">
+    <p class="id-text id-intro">I'm a data analyst at Fighting Illini Athletics and a research collaborator with the Human-Computer Integration Lab at the University of Chicago.</p>
+    
+    <p class="id-text id-body">Through my work, I explore how to integrate new sensing and feedback modalities to enhance daily living. My research interests lie in human-computer interaction, health sensing, and machine learning.</p>
+  </div>
+
+  <!-- Experience -->
+  <h2 class="id-text id-section">experience</h2>
+  
+  <div class="item">
+    <h3 class="id-text id-item">Research Collaborator</h3>
+    <p class="id-text id-meta">Human Computer Integration Lab - University of Chicago</p>
+    <p class="id-text id-meta">January 2024 - Present</p>
+  </div>
+
+  <div class="item">
+    <h3 class="id-text id-item">Data Analyst</h3>
+    <p class="id-text id-meta">Fighting Illini Athletics</p>
+    <p class="id-text id-meta">July 2022 - Present</p>
+  </div>
+
+  <div class="item">
+    <h3 class="id-text id-item">Research Assistant</h3>
+    <p class="id-text id-meta">Center for Health Informatics - University of Illinois at Urbana-Champaign</p>
+    <p class="id-text id-meta">January 2022 - July 2022</p>
+  </div>
+
+  <!-- Publications -->
+  <h2 class="id-text id-section">publications</h2>
+  
+  <div class="item">
+    <h3 class="id-text id-item">Demonstrating Adaptive Electrical Muscle Stimulation for Improved Muscle Memory</h3>
+    <p class="id-text id-body">Siya Choudhary, Romain Nith, Jas Brooks, Yun Ho, Mithil Guruvugari, and Pedro Lopes</p>
+    <p class="id-text id-meta">In Proceedings of CHI 2025</p>
+  </div>
+
+  <!-- Projects -->
+  <h2 class="id-text id-section">projects</h2>
+  
+  <div class="item">
+    <h3 class="id-text id-item">Fitbit Sleep Score Prediction</h3>
+    <p class="id-text id-body">Gathered and analyzed data from the Fitbit API with Python, selecting key features for sleep score prediction. Performed regression analysis to develop a highly accurate model, achieving an R-Squared value of over .91</p>
+  </div>
+
+  <div class="item">
+    <h3 class="id-text id-item">Athlete Strength Test Analysis</h3>
+    <p class="id-text id-body">Analyzed Illinois Olympic Sports strength test data collected on the Hawkin Dynamics Platform. Performed correlation and regression analysis using scikit-learn in Python to select key variables influencing test performance, helping identify overtraining in athletes</p>
+  </div>
+
+  <div class="item">
+    <h3 class="id-text id-item">Coursera Customer Churn Prediction</h3>
+    <p class="id-text id-body">Implemented a neural network model on a large dataset (350000+ examples) to predict customer churn using TensorFlow for a data science competition on Coursera. Achieved a score for the evaluation metric (AUC) in the top 10% of submissions worldwide</p>
+  </div>
 </body>
 </html>
