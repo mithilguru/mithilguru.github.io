@@ -7,7 +7,8 @@
   <!-- External libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css">
+  <!-- Adobe Fonts - Univers Next Pro -->
+  <link rel="stylesheet" href="https://use.typekit.net/[your-kit-id].css">
   <style>
     /* CSS Reset and Base Styles */
     html {
@@ -26,10 +27,10 @@
       --border-color: #eaeaea;
       --nav-width: 220px;
       --content-max-width: 810px;
-      --name-weight: 600;          
-      --section-header-weight: 600; 
+      --name-weight: 500;          
+      --section-header-weight: 500; 
       --nav-weight: 400;           
-      --card-header-weight: 500;   
+      --card-header-weight: 400;   
     }
     
     /* Dark Theme Variables */
@@ -55,14 +56,10 @@
     }
   
     /* Typography */
-    @supports (font-variation-settings: normal) {
-      body {
-        font-family: 'Inter var', sans-serif;
-      }
-    }
-  
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "univers-next-pro", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      font-style: normal;
       line-height: 1.5;
       background-color: var(--background-color);
       color: var(--secondary-color);
@@ -70,22 +67,23 @@
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: 'ss01' on, 'ss02' on, 'cv01' on, 'cv03' on;
       font-size: 1em;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
   
     h1, .nav-header {
-      font-family: inherit;
+      font-family: "univers-next-pro", sans-serif;
       font-weight: var(--name-weight);
+      font-style: normal;
       letter-spacing: -0.03em;
       color: var(--primary-color);
       transition: color 0.3s ease;
     }
   
     h2 {
-      font-family: inherit;
+      font-family: "univers-next-pro", sans-serif;
       font-weight: var(--section-header-weight);
+      font-style: normal;
       font-size: 2.074em;
       margin-bottom: 32px;
       letter-spacing: -0.02em;
@@ -94,15 +92,17 @@
     }
   
     .nav-links {
-      font-family: inherit;
+      font-family: "univers-next-pro", sans-serif;
       font-weight: var(--nav-weight);
+      font-style: normal;
       font-size: 1em;
     }
   
     .project-card h3,
     .experience-card h3 {
-      font-family: inherit;
+      font-family: "univers-next-pro", sans-serif;
       font-weight: var(--card-header-weight);
+      font-style: normal;
       letter-spacing: -0.01em;
       color: var(--primary-color);
       transition: color 0.3s ease;
