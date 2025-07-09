@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>i-D Title Recreation</title>
+  <title>Simple Title Test</title>
   <!-- Adobe Fonts - Replace with your kit ID -->
   <link rel="stylesheet" href="https://use.typekit.net/[your-kit-id].css">
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -24,27 +23,20 @@
       background: #000;
       color: #fff;
       padding: 40px;
-      font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     }
     
-    /* Exact i-D recreation */
     .id-title {
       font-family: "univers-next-pro", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 36px; /* Exact pixel value */
-      font-style: normal;
+      font-size: 36px;
       font-weight: 400;
-      font-stretch: expanded; /* Normal width - might need adjustment */
-      line-height: 100%; /* Exact match to i-D */
-      letter-spacing: -0.11rem; /* Exact match to i-D */
+      line-height: 105%;
+      letter-spacing: -0.135rem;
       color: white;
-      background-color: black;
       display: inline-block;
-      margin-bottom: 40px;
+      transform: scaleX(1.1); /* Alternative to font-stretch */
     }
     
-    /* Highlight on hover to see dimensions */
-    .id-title:hover,
-    .test-title:hover {
+    .id-title:hover {
       background-color: rgba(255, 255, 255, 0.1);
       outline: 1px solid rgba(255, 255, 255, 0.3);
     }
